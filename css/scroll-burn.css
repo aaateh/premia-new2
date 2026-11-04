@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Scroll Burn — прожиг между секциями.
+   Chrome: живой SVG-фильтр. Safari/WebKit: SVG-путь с CSS-заливкой.
+   ========================================================================== */
+
+/* секция-хозяин прожига */
+.burn-host { position: relative; }
+
+/* у следующей секции гасим 1px-шов на стыке */
+.burn-next { border-top-color: transparent; }
+
+/* слой внутри уходящей секции */
+.burn {
+  position: absolute;
+  inset: 0 0 -1px 0;        /* 1px внахлёст: без шва на стыке с секцией */
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* для высокой секции: слой прижат к нижним 100svh */
+.burn--viewport {
+  inset: auto 0 -1px;
+  height: 100svh;
+}
+
+/* на телефонах убираем 1px-линии на стыке кромки и блоков */
+@media (max-width: 900px) {
+  .section { border-top: 0; }
+}
+
+/* SVG-контейнер фильтра (1×1, не занимает место) */
+.burn__defs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* область с запасом под смещение и блюр */
+.burn__pad {
+  position: absolute;
+}
+
+/* заливка цвета следующей секции */
+.burn__fill {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform: scaleY(0);
+}
+
+/* Safari/WebKit: кромка простым путём, цвет — CSS-заливкой */
+.burn__edge {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Во время резкого прыжка (бегунок/якорь) переход не прожигается через
+   полстраницы: на 180 мс он скрывается и сразу встаёт в целевую точку. */
+.is-burn-jumping .burn {
+  visibility: hidden;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Кофе-лоадер — отдельная анимация</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=10" />
+  <link rel="stylesheet" href="../css/dates-coffee.css?v=2" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #080607;
+      color: #f5f0eb;
+      font-family: var(--font-base);
+    }
+    .dates-art {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+    p { margin-top: 24px; text-align: center; opacity: .7; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="dates-art" aria-hidden="true">
+      <div class="loader">
+        <div class="cup">
+          <div class="cup-handle"></div>
+          <div class="smoke one"></div>
+          <div class="smoke two"></div>
+          <div class="smoke three"></div>
+        </div>
+      </div>
+    </div>
+    <p>Кофе-лоадер. Сейчас не подключён к главной — заготовка для другого блока.</p>
+  </div>
+</body>
+</html>

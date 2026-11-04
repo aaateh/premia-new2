@@ -1,0 +1,527 @@
+/* ==========================================================================
+   partners-form.css — форма «Заявка на партнёрство»
+   Стиль: бумажная поверхность, рамки 1px, радиус 4px, без теней и градиентов.
+   ========================================================================== */
+
+/* ---------- демо-страница ---------- */
+
+.pf-preview .header__inner {
+  justify-content: space-between;
+}
+
+.pf-preview__intro {
+  padding-top: clamp(56px, 7vw, 96px);
+}
+
+.pf-preview__intro h1 {
+  max-width: 820px;
+  font-size: clamp(28px, 7vw, 40px);
+}
+
+.pf-preview__intro .lead {
+  max-width: 640px;
+  margin-top: 22px;
+}
+
+.pf-preview__note {
+  max-width: 640px;
+  margin-top: 28px;
+}
+
+.pf-triggers {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- модальное окно ---------- */
+
+.pf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.pf-modal[hidden] {
+  display: none;
+}
+
+.pf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--backdrop);
+  opacity: 0;
+  transition: opacity .22s var(--ease);
+}
+
+.pf-modal__dialog {
+  /* локальная инверсия токенов: бумага */
+  --scene-ink: var(--ink);
+  --scene-muted: var(--muted);
+  --scene-dim: var(--ink-soft);
+  --scene-faint: var(--muted);
+  --action-border: var(--ink);
+  --control-surface: #25292E14;
+  --rule: var(--paper-rule);
+  --rule-strong: var(--paper-rule-strong);
+
+  position: relative;
+  z-index: 1;
+  width: min(100%, 840px);
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--paper-rule-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .22s var(--ease), transform .22s var(--ease);
+}
+
+.pf-modal__dialog:focus {
+  outline: none;
+}
+
+.pf-modal.is-open .pf-modal__backdrop {
+  opacity: 1;
+}
+
+.pf-modal.is-open .pf-modal__dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pf-modal__dialog::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+.pf-modal__dialog::-webkit-scrollbar-thumb {
+  background: var(--paper-rule-strong);
+}
+
+.pf-modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-bottom: 1px solid var(--paper-rule);
+  border-left: 1px solid var(--paper-rule);
+  border-radius: 0 var(--radius) 0 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .2s var(--ease);
+}
+
+.pf-modal__close:hover {
+  background: var(--close-hover);
+}
+
+.pf-modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pf-modal__body {
+  padding: clamp(24px, 3.4vw, 38px);
+}
+
+.pf-intro {
+  max-width: 680px;
+  padding-right: 40px;
+  margin-bottom: 24px;
+}
+
+.pf-intro[hidden] {
+  display: none;
+}
+
+.pf-intro .eyebrow {
+  margin-bottom: 14px;
+}
+
+.pf-title {
+  font-size: var(--fs-h2);
+}
+
+.pf-lead {
+  max-width: 580px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.pf-modal-open {
+  overflow: hidden;
+}
+
+/* ---------- форма ---------- */
+
+.pf-form {
+  margin-top: 24px;
+}
+
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+}
+
+.pf-field {
+  min-width: 0;
+}
+
+.pf-field--full {
+  grid-column: 1 / -1;
+}
+
+.pf-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-family: var(--font-base);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.pf-req {
+  color: var(--accent-paper);
+}
+
+.pf-field input,
+.pf-field select {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--field-line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.pf-field input::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+.pf-field input:hover,
+.pf-field select:hover {
+  border-color: var(--muted);
+}
+
+.pf-field input:focus,
+.pf-field select:focus {
+  border-color: var(--ink);
+}
+
+.pf-field input[aria-invalid="true"],
+.pf-field select[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.pf-field select {
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%2325292E' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.pf-field select:invalid {
+  color: var(--placeholder);
+}
+
+.pf-field select option {
+  color: var(--ink);
+}
+
+.pf-error {
+  margin-top: 6px;
+  color: var(--error);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.pf-error[hidden] {
+  display: none;
+}
+
+/* согласие на обработку данных */
+
+.pf-check {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.pf-check input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pf-check__box {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  place-items: center;
+  border: 1px solid var(--field-line);
+  border-radius: 2px;
+  background: var(--paper-raised);
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+
+.pf-check__box::after {
+  content: "";
+  width: 10px;
+  height: 5px;
+  border-bottom: 2px solid var(--paper);
+  border-left: 2px solid var(--paper);
+  opacity: 0;
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.pf-check input:checked + .pf-check__box {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.pf-check input:checked + .pf-check__box::after {
+  opacity: 1;
+}
+
+.pf-check input:focus-visible + .pf-check__box {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.pf-check input[aria-invalid="true"] + .pf-check__box {
+  border-color: var(--error);
+}
+
+.pf-check__text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pf-check__text a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pf-check__text a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* капча */
+
+.pf-captcha-wrap {
+  margin-top: 18px;
+}
+
+.pf-captcha {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  align-items: center;
+}
+
+.pf-captcha iframe {
+  max-width: 100%;
+}
+
+.pf-captcha__error {
+  color: var(--error);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* отправка */
+
+.pf-form__error {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--error);
+  border-radius: var(--radius);
+  color: var(--error);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.pf-form__error[hidden] {
+  display: none;
+}
+
+.pf-submit {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.pf-submit[disabled] {
+  opacity: .65;
+  cursor: wait;
+}
+
+/* ловушка для спам-ботов */
+
+.pf-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- успешная отправка ---------- */
+
+.pf-success {
+  padding: 4px 0 0;
+}
+
+.pf-success[hidden] {
+  display: none;
+}
+
+.pf-success__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--accent-paper);
+}
+
+.pf-success__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pf-success h2 {
+  max-width: 560px;
+  font-size: var(--fs-h2);
+}
+
+.pf-success p {
+  max-width: 520px;
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.pf-success .btn {
+  margin-top: 28px;
+}
+
+/* ---------- адаптив ---------- */
+
+@media (max-width: 900px) {
+  .pf-triggers {
+    width: 100%;
+  }
+
+  .pf-triggers .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .pf-modal {
+    padding: 12px;
+  }
+
+  .pf-modal__dialog {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+}
+
+@media (max-width: 640px) {
+  .pf-modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .pf-modal__dialog {
+    width: 100%;
+    max-height: calc(100vh - 8px);
+    max-height: calc(100dvh - 8px);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .pf-modal__close {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pf-modal__body {
+    padding: 26px 20px 32px;
+  }
+
+  .pf-intro {
+    padding-right: 36px;
+    margin-bottom: 24px;
+  }
+
+  .pf-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pf-field--full {
+    grid-column: auto;
+  }
+
+  .partners .btn,
+  .pf-triggers .btn,
+  .pf-submit,
+  .pf-success .btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-modal__backdrop,
+  .pf-modal__dialog {
+    transition-duration: .01ms;
+  }
+}

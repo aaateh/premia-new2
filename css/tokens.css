@@ -1,0 +1,187 @@
+/* ==========================================================================
+   «Суровая премия» — токены дизайн-системы marketingawards.ru
+   Снято с живого сайта 31/10/2026. Тёмная сцена — основная.
+   Шрифты — локальные файлы в fonts/ (OFL, список в ШРИФТЫ.md).
+   ========================================================================== */
+
+@font-face {
+  font-family: "Dela Award";
+  src: url("../fonts/dela-gothic-one-cyrillic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Dela Award";
+  src: url("../fonts/dela-gothic-one-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Involve";
+  src: url("../fonts/Involve-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Golos Award";
+  src: url("../fonts/golos-text-cyrillic.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Golos Award";
+  src: url("../fonts/golos-text-latin.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* --- тёмная сцена (по умолчанию) --- */
+  --ground: #080607;
+  --scene-ink: #F5F0EB;
+  --scene-muted: #FFFFFF;
+  --scene-dim: #F5F0EB;
+  --control-surface: #15111280;
+  --action-border: #C8C2BC;
+  --brand-accent: #F56624;
+  --accent-text: #F56624;
+  --fire-glow: #FF7B39;
+
+  /* --- светлые поверхности (панели, служебные экраны) --- */
+  --paper: #ECE9E3;
+  --paper-raised: #F5F2EC;
+  --panel: #ECE9E3;
+  --form-surface: #ECE9E3;
+  --ink: #25292E;
+  --ink-soft: #3F423F;
+  --muted: #4A4D48;
+  --line: #555957;
+  --field-line: #94958E;
+  --placeholder: #696B64;
+  --disabled-ink: #7E8077;
+  --disabled-line: #AAA99F;
+  --error: #A62C18;
+  --accent-paper: #FF3838;
+  --close-hover: #DEDBD3;
+  --backdrop: #0A090BB3;
+  --scroll-thumb: #4A4442;
+  --scroll-track: #080607;
+
+  /* --- типографика: шкала ---
+     Семь ступеней — единственные допустимые размеры: 12 / 14 / 16 / 20 / 24 +
+     h2 и h1. Новый размер сначала появляется в ДИЗАЙН-СИСТЕМА.md (раздел 1.2),
+     потом здесь. Исключения, которые надо свести: h1 34px на ≤360px,
+     h1 жюри clamp(30px, 8.4vw, 60.48px), .prose clamp(20px, 2vw, 24px). */
+  --fs-micro: 12px;                 /* подписи, номера, метки */
+  --fs-small: 14px;                 /* мелкий текст, примечания */
+  --fs-body: 16px;                  /* основной текст */
+  --fs-lead: 20px;                  /* лид, подзаголовки, названия */
+  --fs-prose: 24px;                 /* крупный вводный текст */
+  --fs-h3: 20px;
+  --fs-h2: clamp(28px, 3.6vw, 40px);
+  --fs-h1: clamp(40px, 6vw, 60.48px);
+
+  /* --- сетка --- */
+  --edge: clamp(24px, 4vw, 72px);
+  --action-w: 244px;
+  --action-h: 54px;
+  --page-col: 1040px;
+
+  /* --- радиусы --- */
+  --radius: 4px;
+  --radius-sm: 6px;
+  --radius-pill: 40px;
+
+  /* --- типографика --- */
+  --slogan-font: "Dela Award", sans-serif;
+  --slogan-size: clamp(56px, 6vw, 72px);
+  --slogan-optical: .84;
+  --slogan-weight: 400;
+  --slogan-leading: 1.06;
+  --slogan-tracking: -.012em;
+  --display-size: calc(var(--slogan-size) * var(--slogan-optical));
+
+  --invitation-font: "Involve", serif;
+  --font-base: "Golos Award", Arial, sans-serif;
+  --font-ui: "Involve", sans-serif;
+
+  /* --- производные токены сайта --- */
+  --rule: #C8C2BC2E;          /* волосяная линия на тёмном */
+  --rule-strong: #C8C2BC52;   /* рамка карточек и блоков */
+  --paper-rule: #D2CEC7;      /* волосяная линия на бумаге */
+  --paper-rule-strong: #B4B0A9; /* рамка карточек на бумаге */
+  --scene-faint: #F5F0EB;     /* третьестепенный текст — белый */
+  --selection: #FFB38A;       /* персиковый тинт оранжевого логотипа */
+
+  /* --- анимация --- */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ==========================================================================
+   База
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: var(--font-base);
+  font-size: 16px;
+  background: var(--ground);
+  color: var(--scene-ink);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--scene-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+
+::selection {
+  background: var(--selection);
+  color: #1A0F0A;
+}
+
+::-moz-selection {
+  background: var(--selection);
+  color: #1A0F0A;
+}
+
+:focus-visible {
+  outline: 2px solid var(--action-border);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scene-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ru" class="is-intro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Суровая премия — профессиональная премия в сфере интернет-маркетинга и SMM</title>
+  <meta name="description" content="Суровая премия — профессиональная премия в сфере интернет-маркетинга и SMM от команды Сурового Питерского форума. Приём заявок: 24 октября 2026 — 17 марта 2027." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080607" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/golos-text-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Involve-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/dela-gothic-one-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/tokens.css?v=10" />
+  <link rel="stylesheet" href="css/style.css?v=128" />
+  <link rel="stylesheet" href="css/typewriter.css?v=1" />
+  <link rel="stylesheet" href="css/bike-loader.css?v=3" />
+  <link rel="stylesheet" href="css/nominations-fire.css?v=1" />
+  <link rel="stylesheet" href="css/tariffs.css?v=6" />
+  <link rel="stylesheet" href="css/scroll-burn.css?v=9" />
+  <link rel="stylesheet" href="css/fire.css?v=3" />
+  <link rel="stylesheet" href="css/partners-form.css?v=1" />
+  <link rel="stylesheet" href="css/intro.css?v=9" />
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      body.is-intro { position: static; overflow: auto; }
+      html.is-intro { overflow: auto; }
+      body.is-intro .site,
+      body.is-intro .fire-scene { opacity: 1; pointer-events: auto; }
+    </style>
+  </noscript>
+</head>
+<body class="is-intro">
+
+  <!-- Заставка: огонь виден только внутри логотипа и слогана -->
+  <div class="intro" id="intro" data-intro>
+    <canvas class="intro__canvas" data-intro-canvas aria-hidden="true"></canvas>
+    <div class="intro__vignette" aria-hidden="true"></div>
+    <video class="intro__video"
+           data-intro-video
+           muted
+           loop
+           playsinline
+           webkit-playsinline
+           preload="auto"
+           disablepictureinpicture
+           disableremoteplayback
+           aria-hidden="true"></video>
+
+    <button class="intro__skip" type="button" data-intro-skip>Пропустить</button>
+  </div>
+
+<div class="fire-scene fire-scene--dim"
+     data-fire-scene
+     data-wait="full"
+     data-rate="0.7"
+     aria-hidden="true">
+  <div class="fire-media">
+    <video class="fire-video"
+           muted
+           loop
+           playsinline
+           webkit-playsinline
+           preload="auto"
+           disablepictureinpicture
+           disableremoteplayback
+           data-src-desktop="media/fire/fire-desktop-1440-loop.mp4"
+           data-src-mobile="media/fire/fire-mobile-540-loop.mp4"></video>
+  </div>
+
+  <canvas class="fire-sparks" aria-hidden="true"></canvas>
+</div>
+
+<div class="site">
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="index.html" aria-label="Суровая премия — на главную">
+      <img class="logo__img" src="logo.svg" alt="Суровая премия" width="230" height="45" />
+    </a>
+
+    <nav class="nav" id="nav">
+      <ul class="nav__list">
+        <li><a href="#about">О премии</a></li>
+        <li><a href="#nominations">Номинации</a></li>
+        <li><a href="#pricing">Стоимость</a></li>
+        <li><a href="#partners" data-partner-open>Стать партнёром</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+
+      <div class="nav__contacts">
+        <span class="nav__contacts-label">Контакты</span>
+        <a class="nav__mail" href="mailto:info@smmconfa.ru">info@smmconfa.ru</a>
+        <div class="socials nav__socials">
+          <a class="socials__link socials__link--tg" href="https://t.me/surrrovo" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+            <svg viewBox="0 0 44 37" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2.68367 16.3994C2.68367 16.3994 21.9309 8.50037 28.6061 5.71892C31.1651 4.60643 39.843 1.04616 39.843 1.04616C39.843 1.04616 43.8482 -0.511328 43.5144 3.27129C43.4031 4.82893 42.5131 10.2804 41.6231 16.1769C40.288 24.5211 38.8417 33.644 38.8417 33.644C38.8417 33.644 38.6192 36.203 36.7278 36.648C34.8365 37.093 31.7213 35.0905 31.1651 34.6453C30.7199 34.3117 22.8209 29.3051 19.9283 26.8574C19.1494 26.19 18.2594 24.855 20.0394 23.2973C24.0447 19.6259 28.8286 15.0644 31.7213 12.1718C33.0564 10.8367 34.3914 7.72155 28.8286 11.5042C20.9296 16.9558 13.1417 22.0735 13.1417 22.0735C13.1417 22.0735 11.3616 23.186 8.02393 22.1847C4.68616 21.1835 0.792211 19.8484 0.792211 19.8484C0.792211 19.8484 -1.87776 18.1796 2.68367 16.3994Z"/></svg>
+          </a>
+          <a class="socials__link socials__link--vk" href="https://vk.com/smmconfa" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте">
+            <svg viewBox="0 0 49 30" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M47.6416 2.69182C47.9846 1.54843 47.6416 0.748047 46.0409 0.748047H40.705C39.3329 0.748047 38.7231 1.4722 38.3801 2.27258C38.3801 2.27258 35.6741 8.90429 31.8246 13.173C30.5669 14.4307 30.0333 14.8119 29.3472 14.8119C29.0042 14.8119 28.5088 14.4307 28.5088 13.2873V2.69182C28.5088 1.31975 28.1276 0.748047 26.9842 0.748047H18.5993C17.7608 0.748047 17.2272 1.39597 17.2272 1.96767C17.2272 3.26352 19.1329 3.56843 19.3616 7.15108V15.0024C19.3616 16.7175 19.0567 17.0224 18.3706 17.0224C16.5793 17.0224 12.1581 10.3907 9.56644 2.76805C9.03285 1.35786 8.53738 0.748047 7.1653 0.748047H1.82944C0.304906 0.748047 0 1.4722 0 2.27258C0 3.68277 1.79132 10.6956 8.42304 19.9572C12.8442 26.284 19.0567 29.7142 24.6974 29.7142C28.0895 29.7142 28.5088 28.9519 28.5088 27.656V22.8538C28.5088 21.3292 28.8137 21.0243 29.9189 21.0243C30.7193 21.0243 32.0533 21.4055 35.2167 24.4545C38.8375 28.0753 39.4473 29.7142 41.4673 29.7142H46.8031C48.3277 29.7142 49.0899 28.9519 48.6326 27.4655C48.1371 25.9791 46.422 23.8066 44.1352 21.2149C42.8775 19.7285 41.0099 18.1658 40.4763 17.3654C39.6759 16.3364 39.9046 15.879 40.4763 15.0024C40.4763 14.9643 46.9937 5.81712 47.6416 2.69182Z"/></svg>
+          </a>
+          <a class="socials__link socials__link--max" href="https://max.ru/channel_smmconfa" target="_blank" rel="noopener" aria-label="MAX" title="MAX">
+            <svg viewBox="0 0 720 720" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <a class="btn btn--sm header__cta" href="#pricing">Подать заявку</a>
+
+    <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 2. ПЕРВЫЙ ЭКРАН -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1 class="hero__brand">
+        <img class="hero__logo" src="logo.svg" alt="" width="230" height="45" />
+        <span class="sr-only">Суровая премия</span>
+      </h1>
+
+      <p class="hero__sub" data-slogan><span data-slogan-line>Получи свой Оскар</span><br />в маркетинге</p>
+
+      <div class="hero__bottom">
+        <div class="hero__main">
+          <div class="hero__text">
+            <p class="lead">Профессиональная премия в сфере интернет-маркетинга и SMM от команды Сурового Питерского форума.</p>
+            <p class="lead">За каждым сильным кейсом стоят люди. Представьте свой проект экспертному жюри и поборитесь за профессиональное признание результатов вашей работы.</p>
+          </div>
+        </div>
+
+        <aside class="hero__aside">
+          <div class="hero__cta">
+            <a class="btn" href="#pricing">Подать заявку</a>
+            <a class="btn btn--ghost" href="#nominations">Смотреть номинации</a>
+          </div>
+
+          <div class="dates-line">
+            <div class="dates-line__label">Приём заявок</div>
+            <div class="dates-line__value">24 октября 2026 — 17 марта 2027</div>
+          </div>
+          <div class="dates-line">
+            <div class="dates-line__label">Церемония награждения</div>
+            <div class="dates-line__value">28 апреля 2027</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <button class="fire-toggle" type="button" data-fire-toggle data-state="paused" hidden>
+      <span class="sr-only" data-fire-label>Пауза фона</span>
+      <svg class="fire-icon fire-icon--pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <svg class="fire-icon fire-icon--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M9 6.5 18 12l-9 5.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </section>
+
+  <!-- 3. О ПРЕМИИ -->
+  <section class="section burn-host" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">О премии</span>
+        <h2>О Суровой премии</h2>
+      </div>
+      <div class="grid grid--2 about">
+        <div>
+          <p>Суровая премия — профессиональный конкурс для специалистов, агентств и компаний, которые реализуют проекты в интернет-маркетинге и SMM.</p>
+          <p style="margin-top:16px">Здесь можно представить собственную работу как специалиста или конкретный проект команды: рекламную кампанию, контент, комплексный SMM или маркетинг в определённой отрасли.</p>
+        </div>
+        <div>
+          <p>Основа участия — кейс с подтверждёнными результатами. Экспертное жюри рассмотрит представленные работы, сформирует шорт-лист и определит победителей в номинациях.</p>
+        </div>
+      </div>
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 4. МИССИЯ -->
+  <section class="section section--soft burn-next burn-host" id="mission">
+    <div class="wrap">
+      <div class="mission">
+        <span class="eyebrow">Миссия</span>
+        <h2 class="mission__title" data-burn-title style="margin-bottom:32px"><span class="mission__baseline" aria-hidden="true"></span><span class="mission__title-text">Сильная работа заслуживает признания</span><canvas class="mission__burn" aria-hidden="true"></canvas></h2>
+        <div class="prose">
+          <p>За результатами маркетинга стоят люди: их идеи, решения, эксперименты и месяцы работы. Часто эти достижения остаются внутри команды или в отчёте для заказчика.</p>
+          <p>Мы создаём Суровую премию, чтобы находить сильные работы в интернет-маркетинге и SMM и отмечать специалистов и команды, которые за ними стоят.</p>
+          <p>Чтобы профессиональное признание опиралось на конкретные кейсы и подтверждённые результаты.</p>
+        </div>
+      </div>
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 5. ПРИНЦИПЫ -->
+  <section class="section section--principles burn-next burn-host" id="principles">
+    <div class="wrap">
+      <div class="mission">
+        <span class="eyebrow">Принципы премии</span>
+        <h2 style="margin-bottom:32px">Победу нельзя купить</h2>
+        <div class="prose">
+          <p>Работы рассмотрит небольшой состав экспертов с многолетним опытом в интернет-маркетинге и SMM.</p>
+          <p>Мы строим оценку на единых правилах и независимости решений. Принцип Суровой премии — исключить обмен голосами и договорённости о взаимной поддержке участников.</p>
+          <p>Оплата даёт возможность представить работу на конкурс. Награду определяет экспертная оценка кейса.</p>
+        </div>
+      </div>
+    </div>
+    <div class="axe" aria-hidden="true"><img src="img/topor.png" alt="" width="335" height="400" loading="eager" decoding="async" /></div>
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 6. ДЛЯ КОГО -->
+  <section class="section section--soft burn-next burn-host" id="participants">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Кто может участвовать</span>
+        <h2>Для тех, кто делает маркетинг</h2>
+        <p class="lead">Работаете самостоятельно, развиваете агентство или отвечаете за маркетинг внутри компании? Если у вас есть реализованный проект и результаты, которые можно подтвердить, рассмотрите участие в Суровой премии.</p>
+        <p class="lead">К участию рассматриваются проекты, реализованные в 2025–2026 годах.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <span class="card__num">01</span>
+          <h3>Специалисты и фрилансеры</h3>
+          <p class="muted">Работаете на себя или в найме и самостоятельно ведёте направление? В блоке «Люди в маркетинге» можно представить собственную работу и профессиональные достижения.</p>
+          <img class="card__figure" src="img/relics/3-compass.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+        <article class="card">
+          <span class="card__num">02</span>
+          <h3>Агентства и группы специалистов</h3>
+          <p class="muted">Создаёте проекты для заказчиков? Представьте кейс, который показывает, какие задачи вы решаете, как работаете и какого результата добиваетесь. Оцениваем конкретные проекты и кампании.</p>
+          <img class="card__figure" src="img/relics-3/3-luchina-bundle.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+        <article class="card">
+          <span class="card__num">03</span>
+          <h3>Бренды и инхаус-команды</h3>
+          <p class="muted">Развиваете маркетинг своего бизнеса? Покажите кампанию, контентный или SMM-проект, в котором решения вашей команды помогли достичь поставленных целей.</p>
+          <img class="card__figure" src="img/relics-3/5-guardian.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+      </div>
+
+      <div style="margin-top:32px">
+        <a class="btn" href="#pricing">Подать заявку</a>
+      </div>
+    </div>
+
+    <div class="key-art" aria-hidden="true">
+      <img src="img/relics-2/3-key.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 7. ЗАЧЕМ УЧАСТВОВАТЬ -->
+  <section class="section burn-next burn-host" id="benefits">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Зачем участвовать</span>
+        <h2>Ваш результат может стать вашим преимуществом</h2>
+      </div>
+
+      <div class="grid grid--4">
+        <article class="card">
+          <h3>Заявить о своей работе</h3>
+          <p class="muted">Представьте на конкурс проект, которым гордитесь. Покажите, что стоит за итоговыми цифрами: вашу идею, принятые решения и вклад в результат.</p>
+          <img class="card__figure" src="img/relics-3/6-chest.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+        <article class="card">
+          <h3>Побороться<br class="br-mobile" /> за профессиональное признание</h3>
+          <p class="muted">Ваш кейс рассмотрит экспертное жюри. Прохождение в шорт-лист или победа станут подтверждением того, что ваша работа получила признание по итогам конкурсной оценки.</p>
+          <img class="card__figure" src="img/relics-3/2-scroll-quill.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+        <article class="card">
+          <h3>Усилить портфолио<br class="br-mobile" /> и репутацию</h3>
+          <p class="muted">Статус финалиста или победителя можно использовать в портфолио, презентациях и коммерческих предложениях. Это дополнительный аргумент, когда вы представляете себя работодателю или обсуждаете сотрудничество с заказчиком.</p>
+          <img class="card__figure" src="img/relics-3/1-lantern.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+        <article class="card">
+          <h3>Сделать достижения команды заметнее</h3>
+          <p class="muted">Подача кейса — повод собрать результаты совместной работы и показать вклад команды. А выход в шорт-лист или победа дадут основание рассказать об этих достижениях клиентам и профессиональному сообществу.</p>
+          <img class="card__figure" src="img/relics-2/4-cup.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+        </article>
+      </div>
+
+      <div style="margin-top:32px">
+        <a class="btn btn--ghost" href="#nominations">Выбрать номинацию</a>
+      </div>
+    </div>
+
+    <div class="quill" aria-hidden="true">
+      <img src="img/relics-2/5-quill.webp" alt="" width="800" height="800" loading="lazy" decoding="async" />
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 8. НОМИНАЦИИ -->
+  <section class="section section--soft burn-next burn-host" id="nominations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Номинации</span>
+        <h2>В какой номинации заявить о себе?</h2>
+        <p class="lead">В Суровой премии пять направлений. Выберите то, которое лучше всего раскрывает вашу работу: личные достижения, рекламную кампанию, отраслевой кейс, контент или комплексный SMM-проект.</p>
+      </div>
+
+      <div class="fire-slot" aria-hidden="true">
+        <div class="fire">
+          <div class="fire-left">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
+          </div>
+          <div class="fire-center">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
+          </div>
+          <div class="fire-right">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
+          </div>
+          <div class="fire-bottom">
+            <div class="main-fire"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8.1 -->
+      <details class="nom-group" open>
+        <summary class="nom-group__summary">
+          <span class="nom-group__toggle" aria-hidden="true"></span>
+          <span class="nom-group__title">
+            <span class="nom-group__heading" role="heading" aria-level="3">Люди в маркетинге</span>
+            <span class="nom-group__desc">Для фрилансеров и специалистов в найме, которые самостоятельно ведут направление. Здесь важны ваша работа, профессиональные решения и личный вклад в результат.</span>
+          </span>
+          <span class="nom-group__count">14 номинаций</span>
+        </summary>
+        <div class="nom-group__body">
+          <ul class="nom-list">
+            <li>Лучший маркетолог</li>
+            <li>Лучший трафик-менеджер <span class="nom-note">комплексная работа с трафиком на разных площадках</span></li>
+            <li>Лучший специалист по Avito</li>
+            <li>Лучший креатор <span class="nom-note">идея и реализация</span></li>
+            <li>Лучший специалист по рекламе во ВКонтакте</li>
+            <li>Лучший специалист по Яндекс.Директу</li>
+            <li>Лучший специалист по TG ADS</li>
+            <li>Лучший специалист по посевам в Telegram</li>
+            <li>Лучший специалист по посевам в MAX</li>
+            <li>Лучший SMM-специалист года</li>
+            <li>Лучший PR-специалист <span class="nom-note">упоминания и охват</span></li>
+            <li>Лучший контент-маркетолог</li>
+            <li>Лучший инфлюенс-маркетолог</li>
+            <li>Лучший комьюнити-менеджер</li>
+          </ul>
+          <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+        </div>
+      </details>
+
+      <!-- 8.2 -->
+      <details class="nom-group">
+        <summary class="nom-group__summary">
+          <span class="nom-group__toggle" aria-hidden="true"></span>
+          <span class="nom-group__title">
+            <span class="nom-group__heading" role="heading" aria-level="3">Рекламные кампании</span>
+            <span class="nom-group__desc">Для инхаус-команд, агентств и групп специалистов. Представьте конкретный проект: какую задачу решали, какие инструменты использовали и чего удалось добиться.</span>
+          </span>
+          <span class="nom-group__count">11 номинаций</span>
+        </summary>
+        <div class="nom-group__body">
+          <ul class="nom-list">
+            <li>Лучшая performance-кампания</li>
+            <li>Лучшая рекламная кампания года в Яндекс.Директе</li>
+            <li>Лучшая рекламная кампания года во ВКонтакте</li>
+            <li>Лучшая рекламная кампания года на Авито</li>
+            <li>Лучшая рекламная кампания года в Telegram</li>
+            <li>Лучшее SEO</li>
+            <li>Лучший email-маркетинг</li>
+            <li>Лучший CRM-маркетинг</li>
+            <li>Лучший продающий сайт года</li>
+            <li>Лучший лендинг года</li>
+            <li>Лучшая маркетинговая воронка</li>
+          </ul>
+          <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+        </div>
+      </details>
+
+      <!-- 8.3 -->
+      <details class="nom-group">
+        <summary class="nom-group__summary">
+          <span class="nom-group__toggle" aria-hidden="true"></span>
+          <span class="nom-group__title">
+            <span class="nom-group__heading" role="heading" aria-level="3">Отраслевой маркетинг</span>
+            <span class="nom-group__desc">Для проектов, в которых важно понимание конкретного рынка. Покажите, как вы учли особенности отрасли, нашли решение и получили результат с имеющимся бюджетом.</span>
+          </span>
+          <span class="nom-group__count">18 номинаций</span>
+        </summary>
+        <div class="nom-group__body">
+          <ul class="nom-list">
+            <li>Лучший маркетинг в медицине</li>
+            <li>Лучший маркетинг в автомобильной отрасли</li>
+            <li>Лучший маркетинг в HoReCa</li>
+            <li>Лучший маркетинг в beauty-индустрии</li>
+            <li>Лучший маркетинг в недвижимости</li>
+            <li>Лучший маркетинг в туризме и гостеприимстве</li>
+            <li>Лучший маркетинг детских товаров и услуг</li>
+            <li>Лучший маркетинг в спорте и ЗОЖ</li>
+            <li>Лучший маркетинг в образовании</li>
+            <li>Лучший маркетинг в fashion</li>
+            <li>Лучший маркетинг в финансовой сфере</li>
+            <li>Лучший маркетинг в IT и digital-продуктах</li>
+            <li>Лучший маркетинг в промышленности</li>
+            <li>Лучший маркетинг в ритейле</li>
+            <li>Лучший маркетинг в FMCG</li>
+            <li>Лучший маркетинг культурных и развлекательных проектов</li>
+            <li>Лучший маркетинг социальных и благотворительных проектов</li>
+            <li>Лучший маркетинг для личного бренда</li>
+          </ul>
+          <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+        </div>
+      </details>
+
+      <!-- 8.4 -->
+      <details class="nom-group">
+        <summary class="nom-group__summary">
+          <span class="nom-group__toggle" aria-hidden="true"></span>
+          <span class="nom-group__title">
+            <span class="nom-group__heading" role="heading" aria-level="3">Контент</span>
+            <span class="nom-group__desc">Для кейсов, в которых сила контента раскрывается через охваты, вовлечённость, собственный язык и креативность. От отдельного видео до стратегии или медиа бренда.</span>
+          </span>
+          <span class="nom-group__count">11 номинаций</span>
+        </summary>
+        <div class="nom-group__body">
+          <ul class="nom-list">
+            <li>Лучший контент-маркетинг года</li>
+            <li>Лучшая контентная стратегия года</li>
+            <li>Лучшее медиа бренда года</li>
+            <li>Лучший Telegram-канал года</li>
+            <li>Лучшее сообщество года во ВКонтакте</li>
+            <li>Лучший корпоративный блог года</li>
+            <li>Лучший подкаст года</li>
+            <li>Лучшее короткое видео года</li>
+            <li>Лучшее длинное видео года</li>
+            <li>Лучший YouTube-проект года</li>
+            <li>Лучший UGC-проект года</li>
+          </ul>
+          <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+        </div>
+      </details>
+
+      <!-- 8.5 -->
+      <details class="nom-group">
+        <summary class="nom-group__summary">
+          <span class="nom-group__toggle" aria-hidden="true"></span>
+          <span class="nom-group__title">
+            <span class="nom-group__heading" role="heading" aria-level="3">SMM</span>
+            <span class="nom-group__desc">Для комплексных проектов в социальных сетях. Здесь рассматриваем работу, которая объединяет контент, привлечение аудитории, рост подписчиков и получение заявок.</span>
+          </span>
+          <span class="nom-group__count">9 номинаций</span>
+        </summary>
+        <div class="nom-group__body">
+          <ul class="nom-list">
+            <li>SMM-проект года во ВКонтакте</li>
+            <li>SMM-проект года в Telegram</li>
+            <li>SMM-проект года в TikTok</li>
+            <li>SMM-проект года на YouTube</li>
+            <li>SMM-проект года в Дзене</li>
+            <li>SMM-проект года в Threads</li>
+            <li>Комплексный SMM-проект года</li>
+            <li>Комьюнити-менеджмент года</li>
+            <li>SMM-проект в Нельзяграме</li>
+          </ul>
+          <a class="btn btn--sm" href="#pricing">Подать заявку</a>
+        </div>
+      </details>
+
+      <div class="cta-strip cta-strip--figure">
+        <div class="cta-strip__text">
+          <h3>Не уверены, какую номинацию выбрать?</h3>
+          <p class="muted">Расскажите о своём проекте команде премии. Поможем сориентироваться в направлениях и требованиях к подаче.</p>
+          <a class="btn" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Подобрать номинацию</a>
+        </div>
+        <img class="cta-strip__figure" src="img/relics-2/2-scroll-crop.webp" alt="" width="400" height="627" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 9. СТОИМОСТЬ -->
+  <section class="section burn-next burn-host" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Стоимость</span>
+        <h2>Стоимость участия</h2>
+        <p class="lead">Выберите подходящую номинацию и период подачи. Стоимость участия повышается по мере приближения окончания приёма заявок.</p>
+      </div>
+
+      <div class="tariff-posters">
+        <div class="poster-row">
+          <article class="poster-card poster-card--people">
+            <div class="poster-grain" aria-hidden="true"></div>
+            <div class="poster-grid" aria-hidden="true"></div>
+            <div class="poster-orb" aria-hidden="true"></div>
+
+            <h3 class="poster-type">
+              <span class="poster-word">Люди</span>
+              <span class="poster-word poster-word--outline">в маркетинге</span>
+            </h3>
+
+            <div class="poster-tape" aria-hidden="true">
+              <div class="poster-tape__scroll">
+                <span>9&nbsp;900&nbsp;₽ // ДЛЯ ФРИЛАНСЕРОВ И СПЕЦИАЛИСТОВ В НАЙМЕ. // ПОДАТЬ ЗАЯВКУ //</span>
+                <span>9&nbsp;900&nbsp;₽ // ДЛЯ ФРИЛАНСЕРОВ И СПЕЦИАЛИСТОВ В НАЙМЕ. // ПОДАТЬ ЗАЯВКУ //</span>
+              </div>
+            </div>
+
+            <div class="poster-foot">
+              <div class="poster-barcode" aria-hidden="true"></div>
+              <div class="poster-info">
+                <p class="poster-price">9&nbsp;900&nbsp;₽</p>
+                <p>Для фрилансеров<br />и специалистов в найме.<span class="poster-date">С 19 ноября — 11&nbsp;990&nbsp;₽.</span></p>
+                <a class="poster-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Подать заявку — Люди в маркетинге, 9 900 ₽">Подать заявку</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="poster-card">
+            <div class="poster-grain" aria-hidden="true"></div>
+            <div class="poster-grid" aria-hidden="true"></div>
+            <div class="poster-orb" aria-hidden="true"></div>
+
+            <h3 class="poster-type">
+              <span class="poster-word">Участие</span>
+              <span class="poster-word poster-word--outline">команд</span>
+            </h3>
+
+            <div class="poster-tape" aria-hidden="true">
+              <div class="poster-tape__scroll">
+                <span>24&nbsp;900&nbsp;₽ // ДЛЯ ИНХАУС-КОМАНД, АГЕНТСТВ И ГРУПП СПЕЦИАЛИСТОВ. // ПОДАТЬ ЗАЯВКУ //</span>
+                <span>24&nbsp;900&nbsp;₽ // ДЛЯ ИНХАУС-КОМАНД, АГЕНТСТВ И ГРУПП СПЕЦИАЛИСТОВ. // ПОДАТЬ ЗАЯВКУ //</span>
+              </div>
+            </div>
+
+            <div class="poster-foot">
+              <div class="poster-barcode" aria-hidden="true"></div>
+              <div class="poster-info">
+                <p class="poster-price">24&nbsp;900&nbsp;₽</p>
+                <p>Для инхаус-команд, агентств<br />и групп специалистов.<span class="poster-date">С 19 ноября — 27&nbsp;990&nbsp;₽.</span></p>
+                <a class="poster-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Подать заявку — Участие команд, 24 900 ₽">Подать заявку</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="cta-strip">
+        <div class="cta-strip__text">
+          <h3>Планируете несколько заявок?</h3>
+          <p class="muted">Для нескольких подач предусмотрены специальные условия. Менеджер поможет разобраться в вариантах и рассчитает стоимость.</p>
+        </div>
+        <a class="btn btn--ghost" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Рассчитать стоимость</a>
+      </div>
+
+      <p class="lead" style="margin-top:24px;max-width:760px">Оплата предполагает участие в конкурсе. Прохождение в шорт-лист и победу определяет экспертная оценка.</p>
+    </div>
+
+    <div class="pricing-camera" aria-hidden="true">
+      <img src="img/relics-3/download.webp" alt="" width="568" height="600" loading="lazy" decoding="async" />
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 10. КАК ПРОХОДИТ УЧАСТИЕ -->
+  <section class="section section--soft burn-next burn-host" id="how">
+    <div class="wrap">
+      <div class="section-head section-head--art">
+        <span class="eyebrow">Как принять участие</span>
+        <div class="head-art">
+          <div class="typewriter" aria-hidden="true">
+            <div class="slide"><i></i></div>
+            <div class="paper"></div>
+            <div class="keyboard"></div>
+          </div>
+          <h2>Как представить свою работу на премию</h2>
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Выберите номинацию</h3>
+            <p class="muted">Найдите направление, которое соответствует вашему проекту. Если сомневаетесь, команда премии поможет с выбором.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Свяжитесь с нами через бот</h3>
+            <p class="muted">Нажмите «Подать заявку». Менеджер ответит на вопросы и расскажет об условиях участия.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Оплатите участие</h3>
+            <p class="muted">Получите ссылку на оплату выбранного варианта.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Получите доступ к личному кабинету</h3>
+            <p class="muted">После подтверждения оплаты направим ссылку для подготовки конкурсной заявки.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Заполните и отправьте кейс</h3>
+            <p class="muted">Опишите задачу, свою работу и результаты. Приложите подтверждающие материалы и отправьте кейс в установленный срок.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="note-strong">Важно: для участия в отборе необходимо отправить заполненный кейс. Одна оплата не заменяет подачу конкурсной работы.</p>
+
+      <div style="margin-top:28px">
+        <a class="btn" href="#pricing">Подать заявку</a>
+      </div>
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 11. КЛЮЧЕВЫЕ ДАТЫ -->
+  <section class="section burn-next" id="dates">
+    <div class="pocket-watch" aria-hidden="true">
+      <img src="img/relics/1-pocket-watch.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+    </div>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Этапы</span>
+        <h2>Ключевые даты</h2>
+      </div>
+
+      <div class="timeline-panel">
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__date">24 октября 2026 —<br />17 марта 2027</div>
+            <div class="timeline__text">Приём заявок</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__date">18 марта 2027 —<br />14 апреля 2027</div>
+            <div class="timeline__text">Формирование шорт-листа</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__date">До 21 апреля 2027</div>
+            <div class="timeline__text">Финальный отбор и определение победителей</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__date">28 апреля 2027</div>
+            <div class="timeline__text">Объявление победителей и церемония награждения</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. ЧТО ПОЛУЧАЮТ УЧАСТНИКИ -->
+  <section class="section burn-host" id="awards">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Что получают участники</span>
+        <h2>От участия к признанию</h2>
+      </div>
+
+      <div class="awards">
+        <div class="awards-line" aria-hidden="true">
+          <svg viewBox="0 0 1040 220" fill="none" focusable="false" preserveAspectRatio="none">
+            <path class="awards-ridge" d="M10 214 L60 198 L110 212 L167 188 L225 214 L280 178 L333 164 L380 150 L410 158 L470 160 L520 132 L590 162 L650 120 L686 96 L740 80 L800 92 L873 20 L950 54 L1030 68" stroke="var(--brand-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="miter" opacity=".85" />
+            <path class="awards-glint" d="M10 214 L60 198 L110 212 L167 188 L225 214 L280 178 L333 164 L380 150 L410 158 L470 160 L520 132 L590 162 L650 120 L686 96 L740 80 L800 92 L873 20 L950 54 L1030 68" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle class="awards-mark" cx="10" cy="214" r="3.5" fill="var(--brand-accent)" />
+            <circle class="awards-mark awards-mark--pulse awards-mark--1" cx="167" cy="188" r="5" fill="var(--brand-accent)" />
+            <circle class="awards-mark awards-mark--pulse awards-mark--2" cx="520" cy="132" r="5" fill="var(--brand-accent)" />
+            <circle class="awards-mark awards-mark--pulse awards-mark--3" cx="873" cy="20" r="5" fill="var(--brand-accent)" />
+            <circle class="awards-mark" cx="1030" cy="68" r="3.5" fill="var(--brand-accent)" />
+          </svg>
+        </div>
+
+        <div class="grid grid--3 awards-grid">
+        <article class="card">
+          <div class="card__head">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 34 34" fill="none" focusable="false">
+                <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8.5 5.5h11.2L25 10.8V25a2 2 0 0 1-2 2H10.5a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2Z" />
+                  <path d="M19.5 5.8V11h5.2" />
+                  <path d="M12.5 15.5h7.5M12.5 19h5" />
+                </g>
+                <g stroke="var(--accent-text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="23.5" cy="23" r="3.2" />
+                  <path d="M21.8 25.7 21 30l2.5-1.5 2.5 1.5-.8-4.3" />
+                </g>
+              </svg>
+            </span>
+            <span class="card__num">Участники</span>
+          </div>
+          <h3>Сертификат об участии</h3>
+          <p class="muted">Рассмотрение поданной конкурсной заявки экспертным жюри и электронный сертификат об участии.</p>
+          <span class="awards-dot" aria-hidden="true"></span>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 34 34" fill="none" focusable="false">
+                <g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                  <path d="M17 4.5 26 8v7.2c0 6.1-3.8 9.9-9 11.8-5.2-1.9-9-5.7-9-11.8V8l9-3.5Z" />
+                </g>
+                <g stroke="var(--accent-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 16.5 3.5 3.5 6.5-7" />
+                </g>
+              </svg>
+            </span>
+            <span class="card__num">Участники шорт-листа</span>
+          </div>
+          <h3>Сертификат о прохождении отбора</h3>
+          <p class="muted">Сертификат о прохождении отбора и публикация в шорт-листе на официальном сайте премии. Возможность посетить церемонию награждения на условиях премии.</p>
+          <span class="awards-dot" aria-hidden="true"></span>
+        </article>
+        <article class="card">
+          <div class="card__head">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 34 34" fill="none" focusable="false">
+                <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12.5 19.5-1.7 10.5 6.2-3.2 6.2 3.2-1.7-10.5" />
+                  <circle cx="17" cy="13" r="7.2" />
+                </g>
+                <path d="m17 9.2 1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4L17 9.2Z" stroke="var(--accent-text)" stroke-width="1.5" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="card__num">Победители</span>
+          </div>
+          <h3>Диплом победителя</h3>
+          <p class="muted">Диплом победителя, отличительный знак и публикация результатов на официальном сайте. Профессиональное достижение, о котором можно рассказать в портфолио, на сайте и в коммуникациях с клиентами.</p>
+          <span class="awards-dot" aria-hidden="true"></span>
+        </article>
+        </div>
+      </div>
+
+      <p class="awards-note">Прохождение в шорт-лист и победа зависят от результатов конкурсного отбора.</p>
+    </div>
+
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 14. ПАРТНЁРЫ -->
+  <section class="section section--soft burn-next burn-host" id="partners">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Партнёры</span>
+        <h2>Партнёры Суровой премии</h2>
+        <p class="muted">Место для логотипов подтверждённых партнёров.</p>
+      </div>
+
+      <div class="partners__logos" style="margin-bottom:40px">
+        <div class="ph">Логотип партнёра</div>
+        <div class="ph">Логотип партнёра</div>
+        <div class="ph">Логотип партнёра</div>
+        <div class="ph">Логотип партнёра</div>
+      </div>
+
+      <div class="partners">
+        <div class="partners__text">
+          <h3 style="margin-bottom:14px">Станьте партнёром Суровой премии</h3>
+          <p class="muted">Поддержите специалистов и команды, которые развивают интернет-маркетинг и SMM, и представьте свой бренд в контексте профессионального события.</p>
+          <p class="muted" style="margin-top:12px">Обсудим задачи вашей компании и подходящий формат сотрудничества.</p>
+        </div>
+        <button class="btn" type="button" data-partner-open>Обсудить партнёрство</button>
+      </div>
+    </div>
+
+    <div class="lamp" aria-hidden="true">
+      <img src="img/relics-3/5-lamp-crop.webp" alt="" width="400" height="286" loading="lazy" decoding="async" />
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 15. ОРГАНИЗАТОРЫ -->
+  <section class="section burn-next burn-host" id="organizer">
+    <div class="wrap">
+      <div class="section-head section-head--art">
+        <span class="eyebrow">Организаторы</span>
+        <div class="head-art">
+          <div class="bike" aria-hidden="true">
+            <svg class="loader" viewBox="0 0 48 30" width="48" height="30" focusable="false">
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                <g transform="translate(9.5,19)">
+                  <circle class="loader_tire" r="9" stroke-dasharray="56.549 56.549"></circle>
+                  <g class="loader_spokes-spin" stroke-dasharray="31.416 31.416" stroke-dashoffset="-23.562">
+                    <circle class="loader_spokes" r="5"></circle>
+                    <circle class="loader_spokes" r="5" transform="rotate(180,0,0)"></circle>
+                  </g>
+                </g>
+                <g transform="translate(24,19)">
+                  <g class="loader_pedals-spin" stroke-dasharray="25.133 25.133" stroke-dashoffset="-21.991" transform="rotate(67.5,0,0)">
+                    <circle class="loader_pedals" r="4"></circle>
+                    <circle class="loader_pedals" r="4" transform="rotate(180,0,0)"></circle>
+                  </g>
+                </g>
+                <g transform="translate(38.5,19)">
+                  <circle class="loader_tire" r="9" stroke-dasharray="56.549 56.549"></circle>
+                  <g class="loader_spokes-spin" stroke-dasharray="31.416 31.416" stroke-dashoffset="-23.562">
+                    <circle class="loader_spokes" r="5"></circle>
+                    <circle class="loader_spokes" r="5" transform="rotate(180,0,0)"></circle>
+                  </g>
+                </g>
+                <polyline class="loader_seat" points="14 3,18 3" stroke-dasharray="5 5"></polyline>
+                <polyline class="loader_body" points="16 3,24 19,9.5 19,18 8,34 7,24 19" stroke-dasharray="79 79"></polyline>
+                <path class="loader_handlebars" d="m30,2h6s1,0,1,1-1,1-1,1" stroke-dasharray="10 10"></path>
+                <polyline class="loader_front" points="32.5 2,38.5 19" stroke-dasharray="19 19"></polyline>
+              </g>
+            </svg>
+          </div>
+          <h2>От команды Сурового Питерского форума</h2>
+        </div>
+      </div>
+
+      <div class="founders">
+        <article class="founder">
+          <div class="founder__photo founder__photo--ignite" data-ignite>
+            <img class="ignite__bw" src="img/rumantsev-bw.jpg" alt="Дмитрий Румянцев" width="820" height="820" />
+            <img class="ignite__color" src="img/rumantsev.jpg" alt="" aria-hidden="true" width="820" height="820" />
+            <canvas class="ignite__canvas" aria-hidden="true"></canvas>
+          </div>
+          <h3 class="founder__name">Дмитрий Румянцев</h3>
+          <p class="founder__text">Мы создаём события, на которых специалисты и предприниматели обсуждают практику интернет-маркетинга, делятся опытом и находят профессиональные связи.</p>
+        </article>
+
+        <article class="founder">
+          <div class="founder__photo founder__photo--logo">
+            <img src="img/logo-forum.svg" alt="Команда Сурового Питерского форума" width="57" height="46" loading="eager" />
+          </div>
+          <h3 class="founder__name">Команда Сурового питерского форума</h3>
+          <p class="founder__text">Суровая премия продолжает эту работу: теперь вы можете представить собственный кейс на конкурс и побороться за признание своих результатов.</p>
+        </article>
+      </div>
+
+      <p class="founders__more"><a class="btn btn--ghost" href="https://smmconfa.ru" target="_blank" rel="noopener">О Суровом Питерском форуме</a></p>
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#ECE9E3" aria-hidden="true"></div>
+  </section>
+
+  <!-- 16. FAQ -->
+  <section class="section section--soft burn-next burn-host" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Вопросы и ответы</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Кто может участвовать?</summary>
+          <p>Фрилансеры и специалисты в найме, которые самостоятельно ведут направление, а также агентства, группы специалистов и инхаус-команды компаний. Для персональных достижений предусмотрен блок «Люди в маркетинге», для проектов — остальные направления премии.</p>
+        </details>
+        <details>
+          <summary>Какие проекты можно представить?</summary>
+          <p>Реализованные проекты за 2025–2026 годы в сфере интернет-маркетинга и SMM. В кейсе нужно раскрыть задачу, выполненную работу и результаты, подкрепив их материалами.</p>
+        </details>
+        <details>
+          <summary>Можно ли участвовать агентству?</summary>
+          <p>Да. Агентство может представить свои проекты и рекламные кампании в соответствующих номинациях. Отдельную награду «Лучшее агентство» в этом сезоне не присуждаем.</p>
+        </details>
+        <details>
+          <summary>Как выбрать номинацию?</summary>
+          <p>Ориентируйтесь на то, что хотите представить: свою работу как специалиста, рекламную кампанию, отраслевой кейс, контент или комплексный SMM-проект. Если подходят несколько вариантов, обратитесь к менеджеру — поможем разобраться.</p>
+        </details>
+        <details>
+          <summary>Что должно быть в кейсе?</summary>
+          <p>Задача проекта, выбранный подход, этапы реализации, результаты и материалы, которые их подтверждают. Подробные требования к оформлению и подтверждениям будут опубликованы в правилах участия.</p>
+        </details>
+        <details>
+          <summary>Как проходит отбор?</summary>
+          <p>Жюри рассматривает предоставленные кейсы и оценивает их по критериям премии. По итогам отбора формируется шорт-лист, затем определяются победители. Подробный порядок оценки будет опубликован в регламенте.</p>
+        </details>
+        <details>
+          <summary>Кто входит в жюри?</summary>
+          <p>Работы рассмотрит небольшой состав экспертов с многолетним опытом в интернет-маркетинге и SMM. Имена и информацию о профессиональном опыте опубликуем в разделе <a href="jury.html">«Жюри»</a>.</p>
+        </details>
+        <details>
+          <summary>Оплата гарантирует награду?</summary>
+          <p>Нет. Оплачивается участие в конкурсе. Прохождение в шорт-лист и победа зависят от экспертной оценки вашей работы.</p>
+        </details>
+        <details>
+          <summary>Получу ли я обратную связь по кейсу?</summary>
+          <p>Конкурсная заявка проходит рассмотрение жюри. Предусмотрена ли индивидуальная обратная связь и в каком формате, будет указано в полных условиях участия.</p>
+        </details>
+        <details>
+          <summary>Сколько стоит участие?</summary>
+          <p>Участие в блоке «Люди в маркетинге» начинается от 9 900 ₽. Стоимость других вариантов и действующие цены смотрите в разделе <a href="#pricing">«Стоимость участия»</a>. Менеджер поможет уточнить тариф для вашего проекта и рассчитать несколько подач.</p>
+        </details>
+        <details>
+          <summary>Можно ли подать несколько заявок?</summary>
+          <p>Да, можно участвовать в нескольких номинациях. Для нескольких подач предусмотрены специальные условия — менеджер поможет рассчитать стоимость и уточнить требования.</p>
+        </details>
+        <details>
+          <summary>Можно ли подать один проект в несколько номинаций?</summary>
+          <p>Порядок подачи одного проекта в разные номинации будет указан в правилах. До оплаты менеджер поможет уточнить, какие варианты доступны для вашего кейса.</p>
+        </details>
+        <details>
+          <summary>Как подать заявку и оплатить участие?</summary>
+          <p>Нажмите «Подать заявку» и перейдите в бот. Менеджер проконсультирует вас и направит ссылку на оплату. После подтверждения оплаты вы получите доступ к личному кабинету для заполнения и отправки кейса.</p>
+        </details>
+        <details>
+          <summary>Где узнать результаты?</summary>
+          <p>Шорт-лист и победителей опубликуем на официальном сайте премии. Участники также получат уведомления по предусмотренным организаторами каналам связи.</p>
+        </details>
+        <details>
+          <summary>Что получает участник?</summary>
+          <p>Участники получают электронный сертификат об участии, а их конкурсные заявки проходят рассмотрение жюри.</p>
+          <p>Участники шорт-листа получают сертификат о прохождении отбора, публикацию на сайте и возможность посетить церемонию на условиях премии.</p>
+          <p>Победители получают диплом победителя и отличительный знак. Результаты также публикуются на официальном сайте.</p>
+        </details>
+        <details>
+          <summary>Кто сможет посетить церемонию?</summary>
+          <p>Возможность участия предусмотрена для тех, чьи проекты вошли в шорт-лист. Подробные условия посещения сообщим дополнительно.</p>
+        </details>
+        <details>
+          <summary>Что делать, если данные проекта конфиденциальны?</summary>
+          <p>До оплаты сообщите об этом менеджеру. Уточним у оргкомитета, какие материалы можно предоставить и допустим ли предложенный формат подтверждения результатов.</p>
+        </details>
+        <details>
+          <summary>Можно ли вернуть оплату?</summary>
+          <p>Порядок и условия возврата будут указаны в документах, регулирующих участие и оплату. Ознакомиться с ними необходимо до оплаты заявки.</p>
+        </details>
+        <details>
+          <summary>Куда обратиться с вопросом?</summary>
+          <p>Напишите команде Суровой премии через официальный бот или по электронной почте. Поможем с выбором номинации, требованиями к кейсу и условиями участия.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="faq-book" aria-hidden="true">
+      <img src="img/relics/4-book.webp" alt="" width="600" height="600" loading="lazy" decoding="async" />
+    </div>
+    <div class="burn burn--viewport" data-burn data-color="#080607" aria-hidden="true"></div>
+  </section>
+
+  <!-- 17. КОНТАКТЫ -->
+  <section class="section burn-next" id="contacts">
+    <div class="wrap">
+      <div class="contacts">
+        <div>
+          <span class="eyebrow">Контакты</span>
+          <h2 style="margin-bottom:20px">С каким кейсом вы готовы заявить о себе?</h2>
+          <p class="muted">Расскажите о проекте, которым гордитесь. Поможем подобрать направление, разобраться с требованиями и условиями участия.</p>
+          <p style="margin-top:28px">
+            <a class="btn" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Обсудить участие</a>
+          </p>
+        </div>
+        <div>
+          <ul class="contacts__list">
+            <li><span>Телефон</span><a href="tel:+79330917007">8 933 091-70-07</a></li>
+            <li><span>Электронная почта</span><a href="mailto:info@smmconfa.ru">info@smmconfa.ru</a></li>
+          </ul>
+
+          <div class="socials">
+            <a class="socials__link socials__link--tg" href="https://t.me/surrrovo" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+              <svg viewBox="0 0 44 37" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2.68367 16.3994C2.68367 16.3994 21.9309 8.50037 28.6061 5.71892C31.1651 4.60643 39.843 1.04616 39.843 1.04616C39.843 1.04616 43.8482 -0.511328 43.5144 3.27129C43.4031 4.82893 42.5131 10.2804 41.6231 16.1769C40.288 24.5211 38.8417 33.644 38.8417 33.644C38.8417 33.644 38.6192 36.203 36.7278 36.648C34.8365 37.093 31.7213 35.0905 31.1651 34.6453C30.7199 34.3117 22.8209 29.3051 19.9283 26.8574C19.1494 26.19 18.2594 24.855 20.0394 23.2973C24.0447 19.6259 28.8286 15.0644 31.7213 12.1718C33.0564 10.8367 34.3914 7.72155 28.8286 11.5042C20.9296 16.9558 13.1417 22.0735 13.1417 22.0735C13.1417 22.0735 11.3616 23.186 8.02393 22.1847C4.68616 21.1835 0.792211 19.8484 0.792211 19.8484C0.792211 19.8484 -1.87776 18.1796 2.68367 16.3994Z"/></svg>
+            </a>
+            <a class="socials__link socials__link--vk" href="https://vk.com/smmconfa" target="_blank" rel="noopener" aria-label="ВКонтакте" title="ВКонтакте">
+              <svg viewBox="0 0 49 30" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M47.6416 2.69182C47.9846 1.54843 47.6416 0.748047 46.0409 0.748047H40.705C39.3329 0.748047 38.7231 1.4722 38.3801 2.27258C38.3801 2.27258 35.6741 8.90429 31.8246 13.173C30.5669 14.4307 30.0333 14.8119 29.3472 14.8119C29.0042 14.8119 28.5088 14.4307 28.5088 13.2873V2.69182C28.5088 1.31975 28.1276 0.748047 26.9842 0.748047H18.5993C17.7608 0.748047 17.2272 1.39597 17.2272 1.96767C17.2272 3.26352 19.1329 3.56843 19.3616 7.15108V15.0024C19.3616 16.7175 19.0567 17.0224 18.3706 17.0224C16.5793 17.0224 12.1581 10.3907 9.56644 2.76805C9.03285 1.35786 8.53738 0.748047 7.1653 0.748047H1.82944C0.304906 0.748047 0 1.4722 0 2.27258C0 3.68277 1.79132 10.6956 8.42304 19.9572C12.8442 26.284 19.0567 29.7142 24.6974 29.7142C28.0895 29.7142 28.5088 28.9519 28.5088 27.656V22.8538C28.5088 21.3292 28.8137 21.0243 29.9189 21.0243C30.7193 21.0243 32.0533 21.4055 35.2167 24.4545C38.8375 28.0753 39.4473 29.7142 41.4673 29.7142H46.8031C48.3277 29.7142 49.0899 28.9519 48.6326 27.4655C48.1371 25.9791 46.422 23.8066 44.1352 21.2149C42.8775 19.7285 41.0099 18.1658 40.4763 17.3654C39.6759 16.3364 39.9046 15.879 40.4763 15.0024C40.4763 14.9643 46.9937 5.81712 47.6416 2.69182Z"/></svg>
+            </a>
+            <a class="socials__link socials__link--max" href="https://max.ru/channel_smmconfa" target="_blank" rel="noopener" aria-label="MAX" title="MAX">
+              <svg viewBox="0 0 720 720" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z"/></svg>
+            </a>
+          </div>
+
+          <p style="margin-top:24px"><button class="btn btn--ghost" type="button" data-partner-open>По вопросам партнёрства</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="torch" aria-hidden="true">
+      <img src="img/relics-2/6-luchina.webp" alt="" width="800" height="800" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="logo" href="index.html" aria-label="Суровая премия — на главную">
+          <img class="logo__img" src="logo.svg" alt="Суровая премия" width="230" height="45" />
+        </a>
+        <p class="footer__tagline">Профессиональная премия в сфере digital-маркетинга.</p>
+        <p style="margin-top:24px"><a class="btn btn--sm" href="#pricing">Подать заявку</a></p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Разделы</h3>
+        <ul>
+          <li><a href="#about">О премии</a></li>
+          <li><a href="#nominations">Номинации</a></li>
+          <li><a href="#pricing">Стоимость</a></li>
+          <li><a href="jury.html">Жюри</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Документы</h3>
+        <ul>
+          <li><a href="https://marketingawards.ru/condition.html" target="_blank" rel="noopener">Регламент премии</a></li>
+          <li><a href="https://marketingawards.ru/condition.html" target="_blank" rel="noopener">Правила участия и подачи кейсов</a></li>
+          <li><a href="docs/oferta" target="_blank" rel="noopener">Условия оплаты и возврата</a></li>
+          <li><a href="docs/privacy" target="_blank" rel="noopener">Политика обработки персональных данных</a></li>
+          <li><a href="docs/consent" target="_blank" rel="noopener">Согласие на обработку персональных данных</a></li>
+          <li><a href="docs/oferta" target="_blank" rel="noopener">Оферта</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© Ивентология, 2026. Все права защищены.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Форма «Заявка на партнёрство» -->
+<div class="pf-modal" id="partner-form" hidden>
+  <div class="pf-modal__backdrop" data-pf-close></div>
+  <div class="pf-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pf-title" aria-describedby="pf-desc" tabindex="-1">
+    <button class="pf-modal__close" type="button" aria-label="Закрыть форму" data-pf-close>
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+        <path d="M1 1L15 15M1 15L15 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+      </svg>
+    </button>
+
+    <div class="pf-modal__body">
+      <div class="pf-intro">
+        <span class="eyebrow">Партнёрство</span>
+        <h2 class="pf-title" id="pf-title">Стать партнёром</h2>
+        <p class="pf-lead" id="pf-desc">Заполните форму — свяжемся, обсудим задачи вашей компании и подберём формат участия.</p>
+      </div>
+
+      <form class="pf-form" id="pf-form" action="mail/mail_partners.php" method="post" novalidate>
+        <div class="pf-grid">
+          <div class="pf-field">
+            <label for="pf-name">Ваше имя <span class="pf-req" aria-hidden="true">*</span></label>
+            <input id="pf-name" name="name" type="text" autocomplete="name" placeholder="Иван Петров" required />
+            <p class="pf-error" data-error-for="name" hidden></p>
+          </div>
+
+          <div class="pf-field">
+            <label for="pf-phone">Телефон <span class="pf-req" aria-hidden="true">*</span></label>
+            <input id="pf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (999) 000-00-00" required />
+            <p class="pf-error" data-error-for="phone" hidden></p>
+          </div>
+
+          <div class="pf-field">
+            <label for="pf-email">E-mail <span class="pf-req" aria-hidden="true">*</span></label>
+            <input id="pf-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" required />
+            <p class="pf-error" data-error-for="email" hidden></p>
+          </div>
+
+          <div class="pf-field">
+            <label for="pf-org">Организация <span class="pf-req" aria-hidden="true">*</span></label>
+            <input id="pf-org" name="org" type="text" autocomplete="organization" placeholder="Название компании" required />
+            <p class="pf-error" data-error-for="org" hidden></p>
+          </div>
+
+          <div class="pf-field pf-field--full">
+            <label for="pf-budget">Бюджет на партнёрскую интеграцию <span class="pf-req" aria-hidden="true">*</span></label>
+            <select id="pf-budget" name="budget" required>
+              <option value="" selected disabled>Выберите бюджет</option>
+              <option value="До 200 000 руб.">До 200 000 руб.</option>
+              <option value="200 000 – 350 000 руб.">200 000 – 350 000 руб.</option>
+              <option value="350 000 – 700 000 руб.">350 000 – 700 000 руб.</option>
+              <option value="700 000 – 1 000 000 руб.">700 000 – 1 000 000 руб.</option>
+              <option value="Более 1 000 000 руб.">Более 1 000 000 руб.</option>
+              <option value="Рассматриваем бартер / услуги">Рассматриваем бартер / услуги</option>
+            </select>
+            <p class="pf-error" data-error-for="budget" hidden></p>
+          </div>
+
+          <div class="pf-field">
+            <label for="pf-site">Ссылка на сайт компании</label>
+            <input id="pf-site" name="company_website" type="text" inputmode="url" autocomplete="url" placeholder="company.ru" />
+          </div>
+
+          <div class="pf-field">
+            <label for="pf-telegram">Контакт в Telegram</label>
+            <input id="pf-telegram" name="telegram_contact" type="text" autocomplete="off" placeholder="@username" />
+          </div>
+        </div>
+
+        <div class="pf-hp" aria-hidden="true">
+          <label>Не заполняйте это поле<input type="text" name="company_fax" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="pf-captcha-wrap">
+          <div class="pf-captcha" id="pf-captcha" data-sitekey="ysc1_cIuSqAHfRwI8vgJC02zZhGbtLmBHYDQ6FSLQmarCe7ce21f0" data-hl="ru"></div>
+          <p class="pf-error" data-error-for="captcha" hidden></p>
+        </div>
+
+        <label class="pf-check">
+          <input type="checkbox" name="access" value="1" required />
+          <span class="pf-check__box" aria-hidden="true"></span>
+          <span class="pf-check__text">Даю своё согласие на <a href="docs/consent" target="_blank" rel="noopener noreferrer">обработку персональных данных</a> и принимаю условия <a href="docs/privacy" target="_blank" rel="noopener noreferrer">политики в отношении обработки персональных данных</a>.</span>
+        </label>
+        <p class="pf-error" data-error-for="access" hidden></p>
+
+        <p class="pf-form__error" role="alert" hidden></p>
+
+        <button class="btn pf-submit" type="submit">
+          <span data-pf-submit-label>Отправить заявку</span>
+        </button>
+
+        <input type="hidden" name="theme" value="Стать партнёром" />
+        <input type="hidden" name="source" value="marketingawards.ru/new" />
+      </form>
+
+      <div class="pf-success" hidden>
+        <span class="pf-success__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false">
+            <path d="m4 12.5 5 5L20 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="square" />
+          </svg>
+        </span>
+        <h2 class="pf-success__title" tabindex="-1">Спасибо за заявку</h2>
+        <p>Заявка отправлена. Мы свяжемся с вами в ближайшее время, чтобы обсудить формат партнёрства.</p>
+        <button class="btn" type="button" data-pf-close>Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.site -->
+
+<script src="js/anim-pause.js?v=13" defer></script>
+<script src="js/intro.js?v=11" defer></script>
+<script>
+  /* Сайт оживает после заставки: его скрипты подключаются на видимой
+     странице, поэтому анимации стартуют на месте, а не за кадром. */
+  (function () {
+    var files = [
+      'js/fire.js?v=7',
+      'js/star-border.js?v=2',
+      'js/smooth-scroll.js?v=11',
+      'js/app.js?v=17',
+      'js/partners-form.js?v=1',
+      'js/ignite-reveal.js?v=12',
+      'js/slogan.js?v=1',
+      'js/scroll-burn.js?v=23'
+    ];
+    var started = false;
+
+    function bootSite() {
+      if (started) return;
+      started = true;
+      var i = 0;
+      (function next() {
+        if (i >= files.length) return;
+        var s = document.createElement('script');
+        s.src = files[i++];
+        s.async = false;
+        s.onload = next;
+        s.onerror = next;
+        document.body.appendChild(s);
+      })();
+    }
+
+    document.addEventListener('intro:done', bootSite, { once: true });
+    setTimeout(bootSite, 12000);
+  })();
+</script>
+<script>
+  /* Страховка: если заставка не завершилась (ошибка/зависание), открываем сайт. */
+  setTimeout(function () {
+    var intro = document.getElementById('intro');
+    if (intro && !intro.hidden) {
+      intro.hidden = true;
+      document.body.classList.remove('is-intro');
+      var site = document.querySelector('.site');
+      if (site) site.inert = false;
+    }
+  }, 12000);
+</script>
+</body>
+</html>

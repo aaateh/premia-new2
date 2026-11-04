@@ -1,0 +1,5 @@
+.openchamber/
+.DS_Store
+backups/
+.opencode/tmp/
+mail/config.local.php

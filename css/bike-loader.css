@@ -1,0 +1,281 @@
+/* ==========================================================================
+   «Организаторы» — велосипед-лоадер в цветах огня (From Uiverse.io by fanishah).
+   Линия fires, свечение вокруг. Анимации ставятся на паузу вне экрана
+   и в неактивной вкладке (js/anim-pause.js).
+   ========================================================================== */
+
+.bike {
+  --bike-accent: var(--brand-accent, #F56624);
+  position: relative;
+  isolation: isolate;
+  color: #FFB15C;
+  filter: drop-shadow(0 0 10px rgba(255, 123, 57, 0.35));
+}
+
+/* мерцающее свечение вокруг велосипеда */
+.bike::before {
+  content: "";
+  position: absolute;
+  inset: -18px -22px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 123, 57, 0.42),
+    rgba(245, 102, 36, 0.16) 55%,
+    transparent 80%
+  );
+  filter: blur(14px);
+  -webkit-animation: bikeHalo 6.4s ease-in-out infinite;
+  animation: bikeHalo 6.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bike .loader {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+.bike .loader_body,
+.bike .loader_front,
+.bike .loader_handlebars,
+.bike .loader_pedals,
+.bike .loader_pedals-spin,
+.bike .loader_seat,
+.bike .loader_spokes,
+.bike .loader_spokes-spin,
+.bike .loader_tire {
+  -webkit-animation: bikeBody 6s ease-in-out infinite;
+  animation: bikeBody 6s ease-in-out infinite;
+  stroke: var(--bike-accent);
+  transition: stroke 0.3s ease;
+}
+
+.bike .loader_front {
+  -webkit-animation-name: bikeFront;
+  animation-name: bikeFront;
+}
+
+.bike .loader_handlebars {
+  -webkit-animation-name: bikeHandlebars;
+  animation-name: bikeHandlebars;
+}
+
+.bike .loader_pedals {
+  -webkit-animation-name: bikePedals;
+  animation-name: bikePedals;
+}
+
+.bike .loader_pedals-spin {
+  -webkit-animation-name: bikePedalsSpin;
+  animation-name: bikePedalsSpin;
+}
+
+.bike .loader_seat {
+  -webkit-animation-name: bikeSeat;
+  animation-name: bikeSeat;
+}
+
+.bike .loader_spokes,
+.bike .loader_tire {
+  stroke: currentColor;
+}
+
+.bike .loader_spokes {
+  -webkit-animation-name: bikeSpokes;
+  animation-name: bikeSpokes;
+}
+
+.bike .loader_spokes-spin {
+  -webkit-animation-name: bikeSpokesSpin;
+  animation-name: bikeSpokesSpin;
+}
+
+.bike .loader_tire {
+  -webkit-animation-name: bikeTire;
+  animation-name: bikeTire;
+}
+
+@keyframes bikeHalo {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  35% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  60% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Animations */
+@keyframes bikeBody {
+  from {
+    stroke-dashoffset: 79;
+  }
+
+  33%,
+  67% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -79;
+  }
+}
+
+@keyframes bikeFront {
+  from {
+    stroke-dashoffset: 19;
+  }
+
+  33%,
+  67% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -19;
+  }
+}
+
+@keyframes bikeHandlebars {
+  from {
+    stroke-dashoffset: 10;
+  }
+
+  33%,
+  67% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes bikePedals {
+  from {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -25.133;
+  }
+
+  33%,
+  67% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -21.991;
+  }
+
+  to {
+    stroke-dashoffset: -25.133;
+  }
+}
+
+@keyframes bikePedalsSpin {
+  from {
+    transform: rotate(0.1875turn);
+  }
+
+  to {
+    transform: rotate(3.1875turn);
+  }
+}
+
+@keyframes bikeSeat {
+  from {
+    stroke-dashoffset: 5;
+  }
+
+  33%,
+  67% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -5;
+  }
+}
+
+@keyframes bikeSpokes {
+  from {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -31.416;
+  }
+
+  33%,
+  67% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -23.562;
+  }
+
+  to {
+    stroke-dashoffset: -31.416;
+  }
+}
+
+@keyframes bikeSpokesSpin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(3turn);
+  }
+}
+
+@keyframes bikeTire {
+  from {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 56.549;
+    transform: rotate(0);
+  }
+
+  33% {
+    stroke-dashoffset: 0;
+    transform: rotate(0.33turn);
+  }
+
+  67% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: 0;
+    transform: rotate(0.67turn);
+  }
+
+  to {
+    stroke-dashoffset: -56.549;
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bike,
+  .bike::before,
+  .bike .loader_body,
+  .bike .loader_front,
+  .bike .loader_handlebars,
+  .bike .loader_pedals,
+  .bike .loader_pedals-spin,
+  .bike .loader_seat,
+  .bike .loader_spokes,
+  .bike .loader_spokes-spin,
+  .bike .loader_tire {
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  .bike::before {
+    opacity: 0.6;
+  }
+}

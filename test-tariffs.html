@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Тест: стоимость участия — карточки, билеты, постеры</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080607" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/tokens.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=51" />
+
+  <style>
+    /* ==========================================================================
+       Билеты — стиль Uiverse (dexter-st, slippery-bird-76), перенесён без
+       изменения значений. Отличия только технические:
+       1) классы получили префикс ticket-, чтобы стили сайта (.card, .header,
+          .footer, .body, .number и т.д.) не перекрывали билет;
+       2) keyframes и id SVG-фильтра переименованы, чтобы не пересекаться с сайтом;
+       3) возвращены значения по умолчанию демо-страницы Uiverse: чёрный текст,
+          line-height normal, нулевой радиус (сайт задаёт белый текст и радиус 4px);
+       4) один общий SVG-фильтр на два билета (в оригинале фильтр лежал в карточке);
+       5) Inter подключён локально, Impact заменён на свободный Anton (OFL).
+       ========================================================================== */
+
+    @font-face {
+      font-family: "Inter";
+      src: url("fonts/Inter-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("fonts/Inter-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Anton";
+      src: url("fonts/anton-latin.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Oswald";
+      src: url("fonts/oswald-cyrillic-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    @font-face {
+      font-family: "Oswald";
+      src: url("fonts/oswald-latin-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Literata";
+      src: url("fonts/Literata-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Literata";
+      src: url("fonts/Literata-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/jetbrains-mono-cyrillic.woff2") format("woff2");
+      font-weight: 300 800;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/jetbrains-mono-latin.woff2") format("woff2");
+      font-weight: 300 800;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    .ticket-demo {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 48px;
+      padding: 24px 0 8px;
+    }
+
+    .ticket-filter {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    /* ---------- оригинальный CSS билета ---------- */
+
+    .ticket {
+      --width: 240px;
+      --height: 370px;
+      --perforation-size: 12px;
+      --cutouts-adjust: 70px;
+
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 1rem;
+      grid-template-areas:
+        "header"
+        "body"
+        "footer";
+
+      width: var(--width);
+      height: var(--height);
+      padding: var(--perforation-size) 0;
+
+      font-family: var(--font-base);
+      font-size: 1rem;
+      user-select: none;
+      overflow: hidden;
+
+      /* возврат к значениям по умолчанию оригинальной демо-страницы */
+      color: #000;
+      line-height: normal;
+      border-radius: 0;
+
+      filter: drop-shadow(0 2px 1px #00000025) drop-shadow(0 4px 3px #00000025)
+        drop-shadow(0 10px 9px #00000025) drop-shadow(0 20px 20px #00000025)
+        drop-shadow(0 40px 40px #00000025);
+      animation: ticket-hover 3s ease infinite;
+      will-change: transform;
+    }
+
+    @keyframes ticket-hover {
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    .ticket-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-color: #fff;
+      filter: url(#ticket-bump);
+      mask:
+        /* top perforations */
+        radial-gradient(
+          circle at 50% 0,
+          #fff0 calc(var(--perforation-size) - 5px),
+          #000 calc(var(--perforation-size) - 4px)
+        ),
+        /* bottom perforations */
+          radial-gradient(
+            circle at 50% 100%,
+            #fff0 calc(var(--perforation-size) - 5px),
+            #000 calc(var(--perforation-size) - 4px)
+          ),
+        /* left notch */
+          radial-gradient(circle 8px at left center, #000 98%, #0000 100%),
+        /* right notch */
+          radial-gradient(circle 8px at right center, #000 98%, #0000 100%),
+        /* cut perforation */
+          repeating-linear-gradient(
+            90deg,
+            #000 10px,
+            #000 15px,
+            #0000 16px,
+            #0000 24px
+          );
+
+      mask-repeat: repeat-x, repeat-x, no-repeat, no-repeat, repeat-x;
+
+      mask-size:
+        calc(var(--perforation-size) * 2) 100%,
+        calc(var(--perforation-size) * 2) 100%,
+        16px 16px,
+        16px 16px,
+        10px 2px;
+
+      mask-position:
+        calc(0.5 * var(--perforation-size)) top,
+        calc(0.5 * var(--perforation-size)) bottom,
+        left var(--cutouts-adjust),
+        right var(--cutouts-adjust),
+        0 calc(var(--cutouts-adjust) + 7px);
+
+      mask-composite: intersect, exclude, add, add;
+    }
+
+    .ticket-holographic {
+      background-image: linear-gradient(to bottom, #fe58, 90%, #0002),
+        conic-gradient(
+          at 60% 50%,
+          #ccc,
+          #ff6bfe,
+          #00f9f8,
+          #ddd,
+          #0081fd,
+          #eef0bc,
+          #0081fd,
+          #ff6bfe,
+          #0002,
+          #0081fd,
+          #ddd,
+          #01fefb,
+          #ccc
+        );
+    }
+    .ticket-holographic::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 70% 20%, #f0f, #0000),
+        repeating-radial-gradient(circle at 30% 80%, #fff, #f4a 48px, #eeeeee 150px);
+      mix-blend-mode: color-burn;
+    }
+    .ticket-holographic::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, #f205, #f00, #0f0, #f205);
+      mix-blend-mode: difference;
+
+      animation: ticket-bg-pos 3s ease-in-out infinite alternate;
+      background-position: 0 0;
+      background-size: 100% 300%;
+      background-repeat: repeat;
+    }
+
+    @keyframes ticket-bg-pos {
+      to {
+        background-position: 0 500px;
+      }
+    }
+
+    .ticket-header {
+      position: relative;
+      grid-area: header;
+      margin: 0 8px;
+      text-align: center;
+      z-index: 1;
+      font-family: var(--font-base);
+      font-weight: 700;
+      font-size: 2.75rem;
+      letter-spacing: 2px;
+      color: #ffffff9f;
+      text-shadow: 0 0 0 #000;
+      -webkit-text-stroke: #fff 0.5px;
+      mix-blend-mode: difference;
+    }
+
+    .ticket-header--name {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 66px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .ticket-body {
+      grid-area: body;
+      margin: 0 1em;
+      padding: 0.5em;
+      font-weight: 400;
+      z-index: 1;
+    }
+
+    .ticket-desc {
+      min-height: 86px;
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .ticket-price {
+      margin: 0;
+      color: #000;
+      font-family: var(--slogan-font);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .ticket-gap {
+      height: 1.35em;
+    }
+
+    .ticket-note {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0.72;
+    }
+
+    .ticket-footer {
+      grid-area: footer;
+      z-index: 1;
+
+      margin: 0 1em 1em 1em;
+    }
+
+    .ticket-cta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      padding: 0 12px;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: none;
+      text-decoration: none;
+      overflow: hidden;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .ticket-cta::before,
+    .ticket-cta::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(
+        to right,
+        currentColor 0 1px,
+        transparent 1px 3px,
+        currentColor 3px 4px,
+        transparent 4px 6px
+      );
+      opacity: 0.9;
+    }
+
+    .ticket-cta::before { top: 0; }
+    .ticket-cta::after { bottom: 0; }
+
+    .ticket-cta:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .ticket-cta:focus-visible {
+      outline: 2px solid #0a0a0a;
+      outline-offset: 2px;
+    }
+
+    .test-note {
+      max-width: 760px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 560px) {
+      .ticket-demo { gap: 32px; }
+    }
+
+    /* ==========================================================================
+       Постеры — стиль Uiverse (mamyapro123, curvy-snake-6), перенесён
+       без изменения визуальных значений. Отличия только технические:
+       1) добавлены обёртка .manifesto-demo, ряд .poster-row и кнопка .poster-cta;
+       2) шрифты заменены на свободные: Impact → Oswald, Georgia → Literata,
+          Courier New → JetBrains Mono (все OFL);
+       3) line-height normal возвращён, чтобы стили сайта не растягивали ленту;
+       4) чекбокс скрыт визуально, но остаётся доступен с клавиатуры;
+       5) переключатель один на два постера — режим меняется сразу у обоих.
+       ========================================================================== */
+
+    .manifesto-demo {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: clamp(24px, 3vw, 40px) clamp(12px, 2vw, 20px);
+      background: transparent;
+    }
+
+    .manifesto-demo .manifesto-showcase .presentation-stage {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .poster-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .poster-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 52px;
+      margin-top: 14px;
+      padding: 12px 20px;
+      border: 2px solid var(--text-main);
+      background: var(--text-main);
+      color: var(--bg-inner);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 3px 3px 0px var(--accent);
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .poster-cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--accent);
+    }
+
+    .poster-cta:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--accent);
+    }
+
+    .poster-cta:focus-visible {
+      outline: 3px solid var(--text-main);
+      outline-offset: 3px;
+    }
+
+    /* --- оригинальный CSS постера --- */
+    .manifesto-showcase {
+      --bg-outer: transparent; /* Fully transparent background */
+      --bg-inner: #fdfdfa;
+      --text-main: #0a0a0a;
+      --accent: #ff2a00;
+      --shadow-color: #0a0a0a;
+
+      --geo-radius: 0%;
+      --geo-bg: repeating-linear-gradient(
+        45deg,
+        var(--text-main) 0 2px,
+        transparent 2px 10px
+      );
+      --geo-pos-x: -10%;
+      --geo-pos-y: -10%;
+
+      --font-display: "Oswald", sans-serif;
+      --font-body: "Literata", serif;
+      --font-mono: "JetBrains Mono", "Literata", monospace;
+
+      position: relative;
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      line-height: normal;
+    }
+
+    .manifesto-showcase * {
+      box-sizing: border-box;
+    }
+
+    /* Theme 2: Acid Brutalism (Triggered by checkbox) */
+    .manifesto-showcase:has(.rebel-toggle:checked) {
+      --bg-inner: #111111;
+      --text-main: #ccff00;
+      --accent: #ff007f;
+      --shadow-color: #ff007f;
+
+      --geo-radius: 50%;
+      --geo-bg: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      --geo-pos-x: 20%;
+      --geo-pos-y: 20%;
+
+      --font-display: "Oswald", sans-serif;
+      --font-body: "Literata", serif;
+    }
+
+    .manifesto-showcase .rebel-toggle {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .manifesto-showcase .rebel-toggle:focus-visible ~ .presentation-stage .aesthetic-switch {
+      outline: 3px solid var(--text-main);
+      outline-offset: 3px;
+    }
+
+    .manifesto-showcase .presentation-stage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      background-color: var(--bg-outer);
+      padding: 10px;
+      font-family: var(--font-body);
+      perspective: 1000px;
+    }
+
+    /* --- THE CONTROL SWITCH --- */
+    .manifesto-showcase .aesthetic-switch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      margin-bottom: 1.5rem; /* Reduced margin to fit */
+      background: var(--text-main);
+      color: var(--bg-inner);
+      font-family: var(--font-mono);
+      font-weight: bold;
+      font-size: 0.75rem; /* Scaled down */
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: 2px solid var(--text-main);
+      box-shadow: 3px 3px 0px var(--accent);
+      transition: all 0.3s ease;
+      z-index: 50;
+      text-transform: uppercase;
+    }
+
+    .manifesto-showcase .aesthetic-switch:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--accent);
+    }
+
+    .manifesto-showcase .aesthetic-switch:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--accent);
+    }
+
+    .manifesto-showcase .mode-chaos {
+      display: none;
+    }
+    .manifesto-showcase .rebel-toggle:checked ~ .presentation-stage .mode-clean {
+      display: none;
+    }
+    .manifesto-showcase .rebel-toggle:checked ~ .presentation-stage .mode-chaos {
+      display: inline;
+    }
+
+    /* --- THE POSTER ARTIFACT --- */
+    .manifesto-showcase .poster-card {
+      position: relative;
+      width: min(480px, 100%);
+      height: 450px;
+      background-color: var(--bg-inner);
+      border: 2px solid var(--text-main);
+      box-shadow: 8px 8px 0px var(--shadow-color);
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+      transform-style: preserve-3d;
+    }
+
+    .manifesto-showcase .poster-card:hover {
+      transform: rotateY(5deg) rotateX(2deg) scale(1.02);
+      box-shadow: 12px 12px 0px var(--shadow-color);
+    }
+
+    /* --- TEXTURES & GRIDS (Pure CSS) --- */
+    .manifesto-showcase .css-mesh-grain {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--text-main) 1px, transparent 1px);
+      background-size: 4px 4px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .manifesto-showcase .drafting-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+          to right,
+          var(--text-main) 1px,
+          transparent 1px
+        ),
+        linear-gradient(to bottom, var(--text-main) 1px, transparent 1px);
+      background-size: 20% 20%;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    /* --- GEOMETRIC ART --- */
+    .manifesto-showcase .geo-orb {
+      position: absolute;
+      top: var(--geo-pos-y);
+      right: var(--geo-pos-x);
+      width: 60%;
+      height: 45%;
+      background: var(--geo-bg);
+      border-radius: var(--geo-radius);
+      transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+      mix-blend-mode: multiply;
+      opacity: 0.8;
+    }
+
+    /* --- TYPOGRAPHY --- */
+    .manifesto-showcase .type-container {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+
+    .manifesto-showcase .huge-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(4rem, 8vw, 5rem);
+      line-height: 0.8;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      mix-blend-mode: exclusion;
+      position: relative;
+      transition: color 0.6s ease;
+    }
+
+    .manifesto-showcase .word-2 {
+      margin-left: 10%;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text-main);
+    }
+
+    /* --- MARQUEE CAUTION TAPE --- */
+    .manifesto-showcase .tape-ribbon {
+      position: absolute;
+      top: 46%;
+      left: -30%;
+      width: 160%;
+      background: var(--accent);
+      color: var(--bg-inner);
+      transform: rotate(-12deg) scale(1.05);
+      padding: 0.6rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 900;
+      white-space: nowrap;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 20;
+      display: flex;
+      overflow: hidden;
+      transition: all 0.6s ease;
+    }
+
+    .manifesto-showcase .tape-scroll {
+      display: flex;
+      width: max-content;
+      animation: manifestoScrollText 10s linear infinite;
+      will-change: transform;
+    }
+
+    .manifesto-showcase .tape-scroll span {
+      padding-right: 1rem;
+    }
+
+    @keyframes manifestoScrollText {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* --- FOOTER & BARCODE --- */
+    .manifesto-showcase .poster-footer {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      right: 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 5;
+      border-top: 2px solid var(--text-main);
+      padding-top: 0.6rem;
+      transition: border-color 0.6s ease;
+    }
+
+    .manifesto-showcase .barcode {
+      width: 50px;
+      height: 25px;
+      /* Pure CSS Barcode Generator */
+      background: repeating-linear-gradient(
+        to right,
+        var(--text-main) 0,
+        var(--text-main) 2px,
+        transparent 2px,
+        transparent 4px,
+        var(--text-main) 4px,
+        var(--text-main) 6px,
+        transparent 6px,
+        transparent 10px,
+        var(--text-main) 10px,
+        var(--text-main) 11px,
+        transparent 11px,
+        transparent 15px,
+        var(--text-main) 15px,
+        var(--text-main) 19px,
+        transparent 19px,
+        transparent 22px
+      );
+      transition: background 0.6s ease;
+    }
+
+    .manifesto-showcase .manifesto-text {
+      max-width: 72%;
+      text-align: right;
+      color: var(--text-main);
+      transition: color 0.6s ease;
+    }
+
+    .manifesto-showcase .manifesto-text p {
+      margin: 0;
+    }
+
+    .manifesto-showcase .desc {
+      font-family: var(--font-base);
+      font-size: 1rem;
+      line-height: 1.45;
+      opacity: 0.85;
+      hyphens: none;
+      text-wrap: pretty;
+    }
+
+    .manifesto-showcase .desc-date {
+      display: block;
+      margin-top: 6px;
+      white-space: nowrap;
+    }
+
+    .manifesto-showcase .poster-price {
+      margin: 0 0 0.35rem !important;
+      font-family: var(--font-base);
+      font-size: 1.375rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-transform: none;
+    }
+
+    .manifesto-showcase .nowrap {
+      white-space: nowrap;
+    }
+
+    /* Reaction to Chaos Mode Checkbox */
+    .manifesto-showcase .rebel-toggle:checked ~ .presentation-stage .geo-orb {
+      animation: manifestoPulseAcid 3s ease-in-out infinite alternate;
+      mix-blend-mode: screen;
+      filter: blur(14px);
+      will-change: transform, opacity;
+    }
+
+    .manifesto-showcase .rebel-toggle:checked ~ .presentation-stage .huge-text {
+      text-shadow:
+        4px 4px 0px var(--accent),
+        -2px -2px 0px #00ffff;
+      mix-blend-mode: normal;
+    }
+
+    @keyframes manifestoPulseAcid {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1.2) translate(-10%, 10%);
+        opacity: 1;
+      }
+    }
+
+    /* Пауза всех CSS-анимаций, когда блок вне экрана или вкладка неактивна */
+    .anim-paused *,
+    .anim-paused *::before,
+    .anim-paused *::after,
+    body.page-hidden *,
+    body.page-hidden *::before,
+    body.page-hidden *::after {
+      animation-play-state: paused !important;
+    }
+
+    @media (max-width: 560px) {
+      .manifesto-showcase .poster-card { height: 540px; }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+
+  <div class="wrap" style="padding-top:36px;padding-bottom:0">
+    <p class="small muted">Локальная тестовая страница · вариант 1 — текущий блок, вариант 2 — тарифы билетами, вариант 3 — тарифы-постеры</p>
+  </div>
+
+  <!-- 9. СТОИМОСТЬ — текущий блок без изменений -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Стоимость</span>
+        <h2>Стоимость участия</h2>
+        <p class="lead">Выберите подходящую номинацию и период подачи. Стоимость участия повышается по мере приближения окончания приёма заявок.</p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card price-card">
+          <h3>Люди в маркетинге</h3>
+          <div class="price">9 900 ₽</div>
+          <div class="price-note">с 19 ноября — 11 990 ₽</div>
+          <p class="muted">Для фрилансеров и специалистов в найме, которые самостоятельно ведут направление.</p>
+          <div class="price-card__action"><a class="btn" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Подать заявку</a></div>
+        </article>
+
+        <article class="card price-card">
+          <h3>Участие команд</h3>
+          <div class="price">24 900 ₽</div>
+          <div class="price-note">с 19 ноября — 27 990 ₽</div>
+          <p class="muted">Для инхаус-команд, агентств и групп специалистов.</p>
+          <div class="price-card__action"><a class="btn" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Подать заявку</a></div>
+        </article>
+      </div>
+
+      <div class="cta-strip">
+        <div class="cta-strip__text">
+          <h3>Планируете несколько заявок?</h3>
+          <p class="muted">Для нескольких подач предусмотрены специальные условия. Менеджер поможет разобраться в вариантах и рассчитает стоимость.</p>
+        </div>
+        <a class="btn btn--ghost" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener">Рассчитать стоимость</a>
+      </div>
+
+      <p class="lead" style="margin-top:24px;max-width:760px">Оплата предполагает участие в конкурсе. Прохождение в шорт-лист и победу определяет экспертная оценка.</p>
+    </div>
+  </section>
+
+  <!-- ТЕСТ: те же тарифы в виде билетов -->
+  <section class="section" id="tickets">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Тестовый вариант 2</span>
+        <h2>Тарифы-билеты</h2>
+        <p class="lead">Тот же состав тарифов в билетах Uiverse: размер 180 × 320 px, голографический фон, перфорация, ноты, штрихкод и анимация парения — без изменений.</p>
+      </div>
+
+      <div class="ticket-demo">
+        <svg class="ticket-filter" aria-hidden="true" focusable="false">
+          <filter id="ticket-bump">
+            <feTurbulence
+              result="noise"
+              numOctaves="3"
+              baseFrequency="0.7"
+              type="fractalNoise"
+            ></feTurbulence>
+            <feSpecularLighting
+              in="noise"
+              result="specular"
+              lighting-color="#fffffc"
+              specularExponent="25"
+              specularConstant="0.8"
+              surfaceScale="0.15"
+            >
+              <fePointLight z="210" y="100" x="100"></fePointLight>
+            </feSpecularLighting>
+            <feComposite
+              result="noise2"
+              operator="in"
+              in="specular"
+              in2="SourceGraphic"
+            ></feComposite>
+            <feBlend mode="screen" in2="noise2" in="SourceGraphic"></feBlend>
+          </filter>
+        </svg>
+
+        <div class="ticket">
+          <div class="ticket-header ticket-header--name">
+            <span class="ticket-title">ЛЮДИ В<br />МАРКЕТИНГЕ</span>
+          </div>
+          <div class="ticket-body">
+            <p class="ticket-desc">Для фрилансеров и специалистов в найме, которые самостоятельно ведут направление.</p>
+            <div class="ticket-price">9&nbsp;900&nbsp;₽</div>
+            <div class="ticket-gap" aria-hidden="true"></div>
+            <p class="ticket-note">с&nbsp;19&nbsp;ноября: 11&nbsp;990&nbsp;₽</p>
+          </div>
+          <div class="ticket-footer">
+            <a class="ticket-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Подать заявку — Люди в маркетинге, 9 900 ₽">Подать заявку</a>
+          </div>
+
+          <div class="ticket-bg ticket-holographic"></div>
+        </div>
+
+        <div class="ticket">
+          <div class="ticket-header ticket-header--name">
+            <span class="ticket-title">УЧАСТИЕ<br />КОМАНД</span>
+          </div>
+          <div class="ticket-body">
+            <p class="ticket-desc">Для инхаус-команд, агентств и групп специалистов.</p>
+            <div class="ticket-price">24&nbsp;900&nbsp;₽</div>
+            <div class="ticket-gap" aria-hidden="true"></div>
+            <p class="ticket-note">с&nbsp;19&nbsp;ноября: 27&nbsp;990&nbsp;₽</p>
+          </div>
+          <div class="ticket-footer">
+            <a class="ticket-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Подать заявку — Участие команд, 24 900 ₽">Подать заявку</a>
+          </div>
+
+          <div class="ticket-bg ticket-holographic"></div>
+        </div>
+      </div>
+
+      <p class="small muted test-note">Оригинал: Uiverse, автор dexter-st, «slippery-bird-76». Шрифт Impact заменён на свободный Anton (OFL), Inter подключён локально из папки fonts. Кнопка «Подать заявку» ведёт на форму.</p>
+    </div>
+  </section>
+
+  <!-- ТЕСТ: те же тарифы в виде постеров -->
+  <section class="section" id="manifesto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Тестовый вариант 3</span>
+        <h2>Тарифы-манифест</h2>
+        <p class="lead">Два тарифа в стиле Uiverse «curvy-snake-6»: постеры с переключателем «минимализм / acid». Переключатель действует сразу на оба постера, кнопка «Оставить заявку» ведёт на форму.</p>
+      </div>
+
+      <div class="manifesto-demo">
+        <div class="manifesto-showcase">
+          <input type="checkbox" id="manifesto-toggle" class="rebel-toggle" />
+
+          <div class="presentation-stage">
+            <label for="manifesto-toggle" class="aesthetic-switch">
+              <span class="switch-track"></span>
+              <span class="switch-text mode-clean">ВКЛЮЧИТЬ ЖЁСТКИЙ РЕЖИМ</span>
+              <span class="switch-text mode-chaos">ВЕРНУТЬ МИНИМАЛИЗМ</span>
+            </label>
+
+            <div class="poster-row">
+              <div class="poster-card">
+                <div class="css-mesh-grain"></div>
+                <div class="drafting-grid"></div>
+
+                <div class="geo-orb"></div>
+
+                <div class="type-container">
+                  <div class="huge-text word-1">ЛЮДИ</div>
+                  <div class="huge-text word-2">SMM</div>
+                </div>
+
+                <div class="tape-ribbon">
+                  <div class="tape-scroll">
+                    <span>9 900 ₽ // ЛЮДИ В МАРКЕТИНГЕ. ДЛЯ ФРИЛАНСЕРОВ И СПЕЦИАЛИСТОВ В НАЙМЕ. // ОСТАВИТЬ ЗАЯВКУ //</span>
+                    <span>9 900 ₽ // ЛЮДИ В МАРКЕТИНГЕ. ДЛЯ ФРИЛАНСЕРОВ И СПЕЦИАЛИСТОВ В НАЙМЕ. // ОСТАВИТЬ ЗАЯВКУ //</span>
+                  </div>
+                </div>
+
+                <div class="poster-footer">
+                  <div class="barcode"></div>
+                  <div class="manifesto-text">
+                    <p class="poster-price">9&nbsp;900&nbsp;₽</p>
+                    <p class="desc">Люди в маркетинге. Для фрилансеров и специалистов в найме.<span class="desc-date nowrap">С 19 ноября — 11&nbsp;990&nbsp;₽.</span></p>
+                    <a class="poster-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Оставить заявку — Люди в маркетинге, 9 900 ₽">Оставить заявку</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="poster-card">
+                <div class="css-mesh-grain"></div>
+                <div class="drafting-grid"></div>
+
+                <div class="geo-orb"></div>
+
+                <div class="type-container">
+                  <div class="huge-text word-1">УЧАСТИЕ</div>
+                  <div class="huge-text word-2">КОМАНД</div>
+                </div>
+
+                <div class="tape-ribbon">
+                  <div class="tape-scroll">
+                    <span>24 900 ₽ // ДЛЯ ИНХАУС-КОМАНД, АГЕНТСТВ И ГРУПП СПЕЦИАЛИСТОВ. // ОСТАВИТЬ ЗАЯВКУ //</span>
+                    <span>24 900 ₽ // ДЛЯ ИНХАУС-КОМАНД, АГЕНТСТВ И ГРУПП СПЕЦИАЛИСТОВ. // ОСТАВИТЬ ЗАЯВКУ //</span>
+                  </div>
+                </div>
+
+                <div class="poster-footer">
+                  <div class="barcode"></div>
+                  <div class="manifesto-text">
+                    <p class="poster-price">24&nbsp;900&nbsp;₽</p>
+                    <p class="desc">Для <span class="nowrap">инхаус-команд</span>, агентств и групп специалистов.<span class="desc-date nowrap">С 19 ноября — 27&nbsp;990&nbsp;₽.</span></p>
+                    <a class="poster-cta" href="https://salebot.site/st/bw6e/conf_surov_forum_prem" target="_blank" rel="noopener" aria-label="Оставить заявку — Участие команд, 24 900 ₽">Оставить заявку</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="small muted" style="max-width:760px;margin-top:24px">Оригинал: Uiverse, mamyapro123, «curvy-snake-6». Impact → Oswald, Georgia → Literata, Courier New → JetBrains Mono (все — OFL). Переключатель меняет режим обоих постеров; кнопка «Оставить заявку» ведёт на форму.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/star-border.js?v=1"></script>
+<script src="js/app.js?v=4"></script>
+<script src="js/anim-pause.js?v=1"></script>
+</body>
+</html>

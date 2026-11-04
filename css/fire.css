@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Фон «Суровой премии» — сцена с огнём, искры и управление движением.
+   Берётся из полигона php/ и работает на главной странице /new/.
+   ========================================================================== */
+
+.fire-scene {
+    --fire-ground: #080607;
+    --fire-ink: #f5f0eb;
+    --fire-accent: #f56624;
+    --fire-line: rgba(245, 240, 235, 0.4);
+
+    position: fixed;
+    inset: 0;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--fire-ground);
+    pointer-events: none;
+}
+
+/* Как в оригинале: сцена выше экрана на 45 % и прижата к низу,
+   поэтому огонь остаётся крупным, а кадр режется сверху. */
+.fire-media {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 145%;
+    pointer-events: none;
+}
+
+.fire-still,
+.fire-still img,
+.fire-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+.fire-still {
+    z-index: 0;
+    transition: opacity .6s ease;
+}
+
+/* Пока видео грузится — показываем постер, после первого кадра убираем. */
+.fire-scene.is-ready .fire-still {
+    opacity: 0;
+}
+
+.fire-scene.is-still .fire-still {
+    opacity: 1;
+}
+
+.fire-video {
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fire-scene.is-ready .fire-video {
+    opacity: 1;
+}
+
+/* На странице с контентом огонь приглушён, чтобы текст оставался читаемым. */
+.fire-scene--dim.is-ready .fire-video {
+    opacity: 0.4;
+}
+
+.fire-scene--dim .fire-sparks {
+    opacity: 0.75;
+}
+
+.fire-scene.is-still .fire-video {
+    display: none;
+}
+
+/* Ниже первых двух экранов сцена не рисуется: ролик при этом
+   может играть только для огня в заголовке «Сильная работа…». */
+.fire-scene.is-offscreen {
+    visibility: hidden;
+}
+
+.fire-sparks {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.fire-toggle {
+    --fire-ink: #f5f0eb;
+    --fire-accent: #f56624;
+    --fire-line: rgba(245, 240, 235, 0.4);
+
+    position: fixed;
+    right: clamp(16px, 2.4vw, 32px);
+    bottom: clamp(16px, 2.4vw, 32px);
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid var(--fire-line);
+    border-radius: 50%;
+    background: rgba(8, 6, 7, 0.35);
+    color: var(--fire-ink);
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.fire-toggle[hidden] {
+    display: none;
+}
+
+.fire-toggle:hover {
+    background: rgba(245, 240, 235, 0.14);
+    border-color: var(--fire-ink);
+}
+
+.fire-toggle:focus-visible {
+    outline: 2px solid var(--fire-accent);
+    outline-offset: 3px;
+}
+
+.fire-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.fire-toggle[data-state="playing"] .fire-icon--play,
+.fire-toggle[data-state="paused"] .fire-icon--pause {
+    display: none;
+}
+
+/* На главной кнопка закреплена в правом нижнем углу первого экрана
+   и уезжает вверх вместе с ним, а не висит над всей страницей. */
+.hero .fire-toggle {
+    position: absolute;
+    right: clamp(16px, 2.4vw, 32px);
+    bottom: clamp(16px, 2.4vw, 32px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fire-video,
+    .fire-toggle {
+        transition: none;
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Тест заставки — Суровая премия</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080607" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/dela-gothic-one-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/tokens.css?v=10" />
+  <link rel="stylesheet" href="css/intro.css?v=6" />
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      body.is-intro { overflow: auto; }
+    </style>
+  </noscript>
+</head>
+<body class="is-intro">
+
+  <!-- Тест заставки. ?t=3.2 — стоп-кадр на нужной секунде, ?intro=0 — сразу сайт. -->
+  <!-- Тестируемая страница сайта лежит под заставкой -->
+  <iframe class="site-frame" data-site-frame src="index.html?intro=0" title="Суровая премия"></iframe>
+
+  <!-- Заставка: огонь виден только внутри букв -->
+  <div class="intro" id="intro" data-intro>
+    <canvas class="intro__canvas" data-intro-canvas aria-hidden="true"></canvas>
+    <div class="intro__vignette" aria-hidden="true"></div>
+    <video class="intro__video"
+           data-intro-video
+           muted
+           loop
+           playsinline
+           webkit-playsinline
+           preload="auto"
+           disablepictureinpicture
+           disableremoteplayback
+           aria-hidden="true"></video>
+
+    <button class="intro__skip" type="button" data-intro-skip>Пропустить</button>
+  </div>
+
+  <button class="intro-replay" type="button" data-intro-replay hidden>Заставка заново</button>
+
+  <script src="js/intro.js?v=8" defer></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Постоянные адреса документов: /docs/oferta, /docs/privacy, /docs/consent
+# (и те же адреса с .pdf на конце).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(oferta|privacy|consent)(?:\.pdf)?/?$ index.php?doc=$1 [L,NC]
+</IfModule>

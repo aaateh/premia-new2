@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Заставка «Суровой премии»: огонь виден только внутри логотипа и слогана.
+   Разметка .intro + этот файл + js/intro.js. Тестовая страница —
+   test-intro.html, рабочая — index.html.
+   ========================================================================== */
+
+body.is-intro {
+    /* фиксируем страницу: пока идёт загрузка, документ не должен
+       прокручиваться ни жестом, ни программно — иначе заставка ломается */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* Пока идёт загрузка, страницу нельзя прокрутить: скроллером в документе
+   выступает html, одного overflow у body для этого мало. */
+html.is-intro {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* Пока идёт заставка, сайт скрыт и не перехватывает клики. Скрипты его
+   анимаций подключаются после заставки (intro:done), поэтому они стартуют
+   уже на видимой странице и не срабатывают за кадром. */
+body.is-intro .site,
+body.is-intro .fire-scene {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- страница под заставкой ---------- */
+
+.site-frame {
+    position: fixed;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #080607;
+}
+
+/* ---------- заставка ---------- */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: hidden;
+    background: #080607;
+    opacity: 1;
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 900ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.intro[hidden] {
+    display: none;
+}
+
+.intro.is-leaving {
+    opacity: 0;
+}
+
+.intro__canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Тёмные края — как в сцене сайта, огонь держится в центре кадра. */
+.intro__vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 62% 58% at 50% 50%,
+            rgba(8, 6, 7, 0) 40%,
+            rgba(8, 6, 7, .42) 76%,
+            rgba(8, 6, 7, .9) 100%);
+}
+
+.intro__video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 2px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- кнопка «Пропустить» ---------- */
+
+.intro__skip {
+    position: absolute;
+    right: clamp(18px, 3.4vw, 48px);
+    bottom: clamp(18px, 3.4vw, 44px);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid rgba(245, 240, 235, .22);
+    border-radius: 40px;
+    background: rgba(8, 6, 7, .35);
+    color: rgba(245, 240, 235, .72);
+    font-family: "Dela Award", sans-serif;
+    font-size: 12px;
+    letter-spacing: .14em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 500ms ease 900ms,
+        color 240ms ease,
+        border-color 240ms ease,
+        background-color 240ms ease;
+}
+
+.intro.is-armed .intro__skip {
+    opacity: 1;
+    transform: none;
+}
+
+.intro__skip::after {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    opacity: .7;
+}
+
+.intro__skip:hover,
+.intro__skip:focus-visible {
+    color: #f5f0eb;
+    border-color: rgba(245, 240, 235, .5);
+    background: rgba(8, 6, 7, .7);
+    outline: none;
+}
+
+/* ---------- повтор заставки (только для теста) ---------- */
+
+.intro-replay {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 60;
+    padding: 10px 14px;
+    border: 1px solid rgba(245, 240, 235, .18);
+    border-radius: 40px;
+    background: rgba(8, 6, 7, .6);
+    color: rgba(245, 240, 235, .62);
+    font-family: "Dela Award", sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.intro-replay[hidden] {
+    display: none;
+}
+
+.intro-replay:hover,
+.intro-replay:focus-visible {
+    color: #f5f0eb;
+    border-color: rgba(245, 240, 235, .45);
+    outline: none;
+}
+
+body.is-intro .intro-replay {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .intro__skip {
+        right: 50%;
+        bottom: 22px;
+        transform: translate(50%, 6px);
+    }
+
+    .intro.is-armed .intro__skip {
+        transform: translate(50%, 0);
+    }
+
+    .intro-replay {
+        left: 14px;
+        bottom: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro,
+    .intro__skip {
+        transition-duration: 300ms;
+    }
+
+    .intro__skip {
+        transition-delay: 0ms;
+    }
+}

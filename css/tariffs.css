@@ -1,0 +1,351 @@
+/* ==========================================================================
+   «Суровая премия» — стоимость участия в виде постеров.
+   Взято с тестовой страницы (вариант 3, Uiverse «curvy-snake-6»), только
+   минималистичный режим, без переключателя «жёсткий режим».
+   Шрифты заменены на свободные: Impact → Oswald, Courier New → JetBrains Mono
+   (OFL, см. ШРИФТЫ.md); основной текст и цена — Golos Award из tokens.css.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/oswald-cyrillic-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/oswald-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-cyrillic.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono-latin.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.tariff-posters {
+  --tp-bg: var(--paper, #ECE9E3);
+  --tp-ink: #0a0a0a;
+  --tp-accent: var(--brand-accent, #f56624);
+
+  font-family: var(--font-base);
+  line-height: normal;
+}
+
+.tariff-posters *,
+.tariff-posters *::before,
+.tariff-posters *::after {
+  box-sizing: border-box;
+}
+
+.tariff-posters .poster-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+/* ---------- постер ---------- */
+
+.tariff-posters .poster-card {
+  position: relative;
+  flex: 1 1 440px;
+  width: auto;
+  max-width: 560px;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  container-type: inline-size;
+  background: var(--tp-bg);
+  border: 2px solid var(--tp-ink);
+  box-shadow: 8px 8px 0 var(--tp-ink);
+  color: var(--tp-ink);
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1),
+    box-shadow 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  transform-style: preserve-3d;
+}
+
+.tariff-posters .poster-card:hover {
+  transform: rotateY(5deg) rotateX(2deg) scale(1.02);
+  box-shadow: 12px 12px 0 var(--tp-ink);
+}
+
+/* ---------- фактуры: сетка, зерно, штриховка ---------- */
+
+.tariff-posters .poster-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background-image: radial-gradient(var(--tp-ink) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.tariff-posters .poster-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      var(--tp-ink) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--tp-ink) 1px, transparent 1px);
+  background-size: 20% 20%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.tariff-posters .poster-orb {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 60%;
+  height: 45%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--tp-ink) 0 2px,
+    transparent 2px 10px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+/* ---------- крупный заголовок ---------- */
+
+.tariff-posters .poster-type {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--tp-ink);
+  font-family: "Oswald", "Golos Award", sans-serif;
+  font-size: clamp(2.5rem, 15.5cqw, 5rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.tariff-posters .poster-word {
+  display: block;
+  white-space: nowrap;
+}
+
+.tariff-posters .poster-word--outline {
+  margin-left: 10%;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--tp-ink);
+}
+
+/* «В маркетинге» длиннее остальных строк — уменьшаем только её. */
+.tariff-posters .poster-card--people .poster-word--outline {
+  font-size: clamp(1.9rem, 12cqw, 3.4rem);
+}
+
+/* ---------- лента ---------- */
+
+.tariff-posters .poster-tape {
+  position: absolute;
+  top: 46%;
+  left: -30%;
+  z-index: 20;
+  display: flex;
+  width: 160%;
+  padding: 0.6rem 0;
+  background: var(--tp-accent);
+  color: var(--tp-ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(-12deg) scale(1.05);
+}
+
+.tariff-posters .poster-tape__scroll {
+  display: flex;
+  width: max-content;
+  animation: tariffTapeScroll 10s linear infinite;
+  will-change: transform;
+}
+
+.tariff-posters .poster-tape__scroll span {
+  padding-right: 1rem;
+}
+
+@keyframes tariffTapeScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- подвал постера ---------- */
+
+.tariff-posters .poster-foot {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 0.6rem;
+  border-top: 2px solid var(--tp-ink);
+}
+
+.tariff-posters .poster-barcode {
+  width: 50px;
+  height: 25px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--tp-ink) 0,
+    var(--tp-ink) 2px,
+    transparent 2px,
+    transparent 4px,
+    var(--tp-ink) 4px,
+    var(--tp-ink) 6px,
+    transparent 6px,
+    transparent 10px,
+    var(--tp-ink) 10px,
+    var(--tp-ink) 11px,
+    transparent 11px,
+    transparent 15px,
+    var(--tp-ink) 15px,
+    var(--tp-ink) 19px,
+    transparent 19px,
+    transparent 22px
+  );
+}
+
+.tariff-posters .poster-info {
+  max-width: 72%;
+  text-align: right;
+  color: var(--tp-ink);
+}
+
+.tariff-posters .poster-info p {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: 1rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.tariff-posters .poster-info .poster-price {
+  margin-bottom: 0.35rem;
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tariff-posters .poster-date {
+  display: block;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+.tariff-posters .poster-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 14px;
+  padding: 12px 20px;
+  border: 2px solid var(--tp-ink);
+  background: var(--tp-ink);
+  color: var(--tp-bg);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--tp-accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.tariff-posters .poster-cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--tp-accent);
+}
+
+.tariff-posters .poster-cta:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--tp-accent);
+}
+
+.tariff-posters .poster-cta:focus-visible {
+  outline: 3px solid var(--tp-ink);
+  outline-offset: 3px;
+}
+
+/* ---------- адаптив ---------- */
+
+@media (max-width: 560px) {
+  .tariff-posters .poster-card {
+    height: 540px;
+  }
+
+  /* на узком постере описание чуть мельче и шире, чтобы строка
+     «Для инхаус-команд, агентств» не рвалась по дефису */
+  .tariff-posters .poster-info {
+    max-width: 76%;
+  }
+
+  .tariff-posters .poster-info p {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tariff-posters .poster-card,
+  .tariff-posters .poster-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .tariff-posters .poster-tape__scroll {
+    animation: none;
+  }
+
+  .tariff-posters .poster-cta {
+    transition: none;
+  }
+}
